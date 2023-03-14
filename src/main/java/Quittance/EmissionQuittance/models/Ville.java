@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 public class Ville {
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long ID;
+    @Column(name = "LIBELLE")
     private String Libelle;
 }

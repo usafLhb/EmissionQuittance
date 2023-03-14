@@ -9,12 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "RefPolice")
-
-public class RefPolice {
+@Table(name = "Ref_COMMERCIALE")
+public class Ref_Commerciale {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "refpolice_seq")
-    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String libelle;
+    private String libelle ;
 }
