@@ -8,6 +8,7 @@ public class EmissionQuittanceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmissionQuittanceApplication.class, args);
+
 	}
 
 }
