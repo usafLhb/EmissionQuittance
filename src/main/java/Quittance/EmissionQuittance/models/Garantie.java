@@ -25,10 +25,10 @@ public class Garantie {
             name = "QTC_GARANTIE",
             joinColumns = @JoinColumn(name = "garantie_id"),
             inverseJoinColumns = @JoinColumn(name = "produit_id"))
-    private List<Produit> courses;
-    @Column(name = "date_debut")
-    private Date DateDebut;
-      @Column(name = "date_fin")
-    private Date DateFin;
+    private List<Produit> produits;
+
+    @ManyToMany(mappedBy = "garanties")
+    private List<Quittance> quittances;
+
 
 }

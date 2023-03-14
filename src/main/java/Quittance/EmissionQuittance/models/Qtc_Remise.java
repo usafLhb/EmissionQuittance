@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,4 +22,7 @@ public class Qtc_Remise {
 
     @Column(name = "MONTANTREMISE")
     private double  montant;
+
+    @OneToMany(mappedBy = "remise")
+    private List<Quittance> quittances;
 }

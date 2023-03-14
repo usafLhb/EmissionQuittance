@@ -15,4 +15,5 @@ public class Ref_Commerciale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String libelle ;
+
 }

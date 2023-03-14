@@ -17,6 +17,6 @@ public class Produit {
     private String libelle;
     private Double tauxTaxe;
     private Double tauxEve;
-    @ManyToMany(mappedBy = "courses")
+    @ManyToMany(mappedBy = "produits")
     private List<Garantie> garanties;
 }

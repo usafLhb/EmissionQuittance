@@ -19,4 +19,9 @@ public class Prd_VersionCommerciale {
     private Ref_Commerciale ref_Commerciale;
     @Column(name = "NOMCOMMERCIAL")
     private String nomCommercial ;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Quittance_id")
+    private Quittance quittance;
+
 }

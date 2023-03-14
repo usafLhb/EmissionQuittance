@@ -9,6 +9,8 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import java.util.Calendar;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -41,4 +43,17 @@ public class Police {
     private Double ff ;
     private Double mnt_taxe_eve ;
     private Double mnt_taxe_parafiscale ;
+
+    @OneToMany(mappedBy = "police")
+    private List<Quittance> quittances;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Ville_id")
+    private Ville ville;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RefPolice_ID")
+    private RefPolice refPolice;
+
+
 }
