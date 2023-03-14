@@ -1,23 +1,10 @@
-package Quittance.EmissionQuittance.models;
+package Quittance.EmissionQuittance.dto;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import java.util.Calendar;
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "Police")
-public class Police {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
+public class PoliceDTO {
     @NotNull
     private Long numClient ;
     @NotNull
