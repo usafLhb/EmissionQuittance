@@ -7,6 +7,6 @@ import jakarta.persistence.Id;
 public class RefPolice {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "refpolice_seq")
-    private Long ID;
-    private String Libelle;
+    private Long iD;
+    private String libelle;
 }
