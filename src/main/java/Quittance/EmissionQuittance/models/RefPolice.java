@@ -1,12 +1,18 @@
 package Quittance.EmissionQuittance.models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "RefPolice")
 public class RefPolice {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "refpolice_seq")
-    private Long ID;
-    private String Libelle;
+    private Long id;
+    private String libelle;
 }

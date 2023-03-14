@@ -16,6 +16,7 @@ public class Garantie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "garantie_seq")
+
     private Long id;
     private String libelle;
     private String code;
@@ -27,7 +28,7 @@ public class Garantie {
     private List<Produit> courses;
     @Column(name = "date_debut")
     private Date DateDebut;
-    @Column(name = "date_fin")
+      @Column(name = "date_fin")
     private Date DateFin;
 
 }

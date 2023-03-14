@@ -13,6 +13,6 @@ public class Ville {
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long ID;
-    @Column(name = "LIBELLE")
+     @Column(name = "LIBELLE")
     private String Libelle;
 }

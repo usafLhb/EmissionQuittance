@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Qtc_Remise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+   @Column(name = "ID")
    private Long id;
     @Column(name = "NUMEROREMISE")
     private  Long codeRemise;

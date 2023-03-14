@@ -6,5 +6,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface ProduitRepository extends JpaRepository<Produit, Long> {
-    public Produit findByCode(String code);
+
 }
