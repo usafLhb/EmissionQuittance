@@ -20,16 +20,19 @@ public class Police {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true)
+    private String codePolice;
     @NotNull
     private Long numClient ;
     @NotNull
-    private String RaisonSociale ;
+    private String raisonSociale ;
     @NotNull
     private String adresse ;
     @NotNull
     private Calendar dateEffet;
 
-    private Calendar DateEcheance;
+    private Calendar dateEcheance;
     @NotNull
     private Double primeNette;
     private Double taxe ;

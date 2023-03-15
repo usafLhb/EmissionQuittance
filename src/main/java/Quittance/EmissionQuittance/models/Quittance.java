@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Data
@@ -46,7 +44,7 @@ public class Quittance {
             name = "Details_Quittance",
             joinColumns = @JoinColumn(name = "quittance_id"),
             inverseJoinColumns = @JoinColumn(name = "garantie_id"))
-    private List<Garantie> garanties;
+    private Set<Garantie> garanties= new HashSet<>();
     private Double montantEve;
     private Double montantTotal;
 }

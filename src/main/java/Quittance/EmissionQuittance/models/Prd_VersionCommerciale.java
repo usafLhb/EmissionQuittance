@@ -29,4 +29,8 @@ public class Prd_VersionCommerciale {
     @OneToMany(mappedBy = "prd_versionCommerciale")
     private List<Police> polices;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ref_Commerciale_id")
+    private Ref_Commerciale refCommerciale;
+
 }
