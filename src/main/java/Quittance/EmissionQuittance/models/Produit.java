@@ -19,4 +19,8 @@ public class Produit {
     private Double tauxEve;
     @ManyToMany(mappedBy = "produits")
     private List<Garantie> garanties;
+
+    @OneToMany(mappedBy = "produit")
+    private List<Police> polices;
+
 }

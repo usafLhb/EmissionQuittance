@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Data
@@ -25,7 +23,7 @@ public class Garantie {
             name = "QTC_GARANTIE",
             joinColumns = @JoinColumn(name = "garantie_id"),
             inverseJoinColumns = @JoinColumn(name = "produit_id"))
-    private List<Produit> produits;
+    private Set<Produit> produits = new HashSet<>();
 
     @ManyToMany(mappedBy = "garanties")
     private List<Quittance> quittances;

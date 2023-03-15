@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -23,5 +25,8 @@ public class Prd_VersionCommerciale {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Quittance_id")
     private Quittance quittance;
+
+    @OneToMany(mappedBy = "prd_versionCommerciale")
+    private List<Police> polices;
 
 }

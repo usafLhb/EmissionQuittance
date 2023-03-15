@@ -39,7 +39,7 @@ public class Police {
     private  Calendar dateEtat;
     private Double nbrtete ;
     private Double revenueAnnuel ;
-    private Double dureS ;
+    private Double dureeS ;
     private Double ff ;
     private Double mnt_taxe_eve ;
     private Double mnt_taxe_parafiscale ;
@@ -48,12 +48,29 @@ public class Police {
     private List<Quittance> quittances;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Produit_id")
+    private Produit produit;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Ville_id")
     private Ville ville;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RefPolice_ID")
     private RefPolice refPolice;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Terme_id")
+    private Terme terme;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Periodicite_id")
+    private Periodicite periodicite;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Prd_VersionCommerciale_id")
+    private Prd_VersionCommerciale prd_versionCommerciale;
+
+
 
 
 }

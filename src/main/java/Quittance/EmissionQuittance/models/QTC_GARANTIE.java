@@ -1,9 +1,6 @@
 package Quittance.EmissionQuittance.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +14,16 @@ import java.util.Date;
 public class QTC_GARANTIE {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private QTCGARANTIEID id;
+
+    @ManyToOne
+    @MapsId("garantie_id")
+    private Garantie garantie;
+
+    @ManyToOne
+    @MapsId("produit_id")
+    private Produit produit;
 
     private Date DateDebut;
     private Date DateFin;
