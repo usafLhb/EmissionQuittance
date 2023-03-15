@@ -13,11 +13,9 @@ public interface QuittanceRepository extends JpaRepository<Quittance,Long> {
    Quittance findByNumeroQuittance(String numQuittance);
    List<Quittance> findAllByVersionCommerciale(String versionCommerciale);
    Quittance findQuittanceByCodePolice(String codePolice);
-
    List<Quittance> findAllByRefQuittance(Long refQuittance);
-
    List<Quittance> findAllByDateEmissionBetween(Calendar DebutD, Calendar FinD);
-    List<Quittance> findAllByPolice(Police Police);
+   List<Quittance> findAllByPolice(Police Police);
 
 
 }
