@@ -55,6 +55,7 @@ public class PoliceServiceImpl implements IPoliceService{
     public Set <Police> getPoliceByNumClientAndCodePolice(String numClient, String codePolice){
         return policeRepository.findAllByNumClientAndCodePolice(numClient, codePolice);
     }
+    //test
     @Override
     public Set <Police> getPoliceByProduitAndCodePolice(String produit, String codePolice){
         return policeRepository.findAllByProduitAndCodePolice(produit, codePolice);
