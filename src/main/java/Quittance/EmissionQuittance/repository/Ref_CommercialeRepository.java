@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface Ref_CommercialeRepository extends JpaRepository<Ref_Commerciale, Long> {
+
 }
