@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "Ref_COMMERCIALE")
 public class Ref_Commerciale {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ref_commerciale_seq")
     private Long id;
     private String libelle ;
 

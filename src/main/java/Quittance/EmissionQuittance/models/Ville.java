@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor @NoArgsConstructor
 public class Ville {
     @Id
-    @GeneratedValue(strategy =GenerationType.IDENTITY)
+    @GeneratedValue(strategy =GenerationType.SEQUENCE, generator = "ville_seq")
     @Column(name = "ID")
     private Long id;
      @Column(name = "LIBELLE")

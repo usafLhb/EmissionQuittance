@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "QTC_REMISE")
 public class Qtc_Remise {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "qtc_remise_seq")
    @Column(name = "ID")
    private Long id;
     @Column(name = "NUMEROREMISE")

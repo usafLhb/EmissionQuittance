@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "RefQuittance")
 public class RefQuittance {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "refquittance_seq")
     private long id;
     private String etat ;
     @OneToMany(mappedBy = "refQuittance")

@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "PERIODECITE")
 public class Periodicite {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "periodicite_seq")
     private Long id;
     private String type_periodicite;
 

@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "TERME")
 public class Terme {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "terme_seq")
     private Long id;
     private String terme;
 

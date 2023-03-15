@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name = "Police")
 public class Police {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "police_seq")
     private Long id;
 
     @Column(unique = true)

@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "PRD_VERSIONCOMMERCIALE")
 public class Prd_VersionCommerciale {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "prd_versioncommerciale_seq")
     private Long id ;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_ref_Commerciale")
