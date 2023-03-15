@@ -7,6 +7,6 @@ import java.io.Serializable;
 @Embeddable
 public class PRDGARANTIEID implements Serializable {
 
-    private Long produitId;
-    private Long garantieId;
+    private Long produit_id;
+    private Long garantie_id;
 }

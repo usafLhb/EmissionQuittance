@@ -14,7 +14,6 @@ public class Garantie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "garantie_seq")
-
     private Long id;
     private String libelle;
     private String code;

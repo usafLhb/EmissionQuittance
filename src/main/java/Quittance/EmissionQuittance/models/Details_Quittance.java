@@ -16,8 +16,8 @@ public class Details_Quittance implements Serializable {
     private DetailQuittanceId id;
 
     @ManyToOne
-    @MapsId("produit_id")
-    private Produit produit;
+    @MapsId("quittance_id")
+    private Produit quittance;
 
     @ManyToOne
     @MapsId("garantie_id")

@@ -8,8 +8,8 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface QuittanceRepository extends JpaRepository<Quittance,Long> {
-    public Quittance findByNumQuittance(String numQuittance);
+  /*  public Quittance findByNumQuittance(String numQuittance);
     public List<Quittance> findAllByVersionCommerciale(String versionCommerciale);
-    public Quittance findQuittanceByCodePolice(String codePolice);
+    public Quittance findQuittanceByCodePolice(String codePolice);*/
 
 }

@@ -10,6 +10,7 @@ import java.util.*;
 @Entity
 @Data
 @AllArgsConstructor @NoArgsConstructor
+
 public class Quittance {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "quittance_seq")

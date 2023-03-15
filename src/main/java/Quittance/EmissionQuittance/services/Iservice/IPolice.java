@@ -7,6 +7,6 @@ import java.util.List;
 
 
 public interface IPolice {
-     public PoliceDTO save(PoliceDTO policeDTO);
-     public List<PoliceDTO> getAllPolice();
+    // public PoliceDTO save(PoliceDTO policeDTO);
+   //  public List<PoliceDTO> getAllPolice();
 }
