@@ -1,5 +1,6 @@
 package Quittance.EmissionQuittance.services.Iservice;
 
+import Quittance.EmissionQuittance.mapper.QuittanceMapper;
 import Quittance.EmissionQuittance.models.Police;
 import Quittance.EmissionQuittance.repository.PoliceRepository;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import java.util.Set;
 @Service
 public class PoliceServiceImpl implements IPoliceService{
     private PoliceRepository policeRepository;
+   // private QuittanceMapper quittanceMapper;
 
     @Override
     public void addPolice(Police police) {
