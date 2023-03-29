@@ -1,0 +1,193 @@
+
+package Quittance.EmissionQuittance.Classes.Produit.modele;
+
+import java.util.Calendar;
+
+import ma.co.deltasoft.parametrage.dal.ParametrageBO;
+import ma.co.omnidata.framework.services.entites.EntiteFactory;
+import ma.co.omnidata.framework.services.entites.IEntite;
+
+public class InteretAvance extends ParametrageBO implements IEntite {
+
+	private static final long serialVersionUID = 1L;
+	private long id;
+	private Calendar dateDebut;
+	private Calendar dateFin;
+   private Double majoration;
+   private Double montantMin;
+   private Double montantMax;
+   private String libelle;
+   
+   private ParametresEpargne refParametresEpargne;
+   
+   public boolean equals(Object obj) {
+		if(this.getId()==((InteretAvance)obj).getId()){
+			return true;
+		}
+		return false;
+	}
+   public InteretAvance() 
+   {
+    
+   }
+
+	public String getDescription() {
+		return id+" "+libelle;
+	}
+
+   /**
+    * Access method for the id property.
+    * 
+    * @return   the current value of the id property
+    */
+   public long getId() 
+   {
+      return id;
+   }
+   
+   /**
+    * Sets the value of the id property.
+    * 
+    * @param aId the new value of the id property
+    */
+   public void setId(long aId) 
+   {
+      id = aId;
+   }
+   
+   /**
+    * Access method for the dateDebut property.
+    * 
+    * @return   the current value of the dateDebut property
+    */
+   public Calendar getDateDebut() 
+   {
+      return dateDebut;
+   }
+   
+   /**
+    * Sets the value of the dateDebut property.
+    * 
+    * @param aDateDebut the new value of the dateDebut property
+    */
+   public void setDateDebut(Calendar aDateDebut) 
+   {
+      dateDebut = aDateDebut;
+   }
+   
+   /**
+    * Access method for the dateFin property.
+    * 
+    * @return   the current value of the dateFin property
+    */
+   public Calendar getDateFin() 
+   {
+      return dateFin;
+   }
+   
+   /**
+    * Sets the value of the dateFin property.
+    * 
+    * @param aDateFin the new value of the dateFin property
+    */
+   public void setDateFin(Calendar aDateFin) 
+   {
+      dateFin = aDateFin;
+   }
+   
+   /**
+    * Access method for the majoration property.
+    * 
+    * @return   the current value of the majoration property
+    */
+   public Double getMajoration() 
+   {
+      return majoration;
+   }
+   
+   /**
+    * Sets the value of the majoration property.
+    * 
+    * @param aMajoration the new value of the majoration property
+    */
+   public void setMajoration(Double aMajoration) 
+   {
+      majoration = aMajoration;
+   }
+   
+   /**
+    * Access method for the montantMin property.
+    * 
+    * @return   the current value of the montantMin property
+    */
+   public Double getMontantMin() 
+   {
+      return montantMin;
+   }
+   
+   /**
+    * Sets the value of the montantMin property.
+    * 
+    * @param aMontantMin the new value of the montantMin property
+    */
+   public void setMontantMin(Double aMontantMin) 
+   {
+      montantMin = aMontantMin;
+   }
+   
+   /**
+    * Access method for the montantMax property.
+    * 
+    * @return   the current value of the montantMax property
+    */
+   public Double getMontantMax() 
+   {
+      return montantMax;
+   }
+   
+   /**
+    * Sets the value of the montantMax property.
+    * 
+    * @param aMontantMax the new value of the montantMax property
+    */
+   public void setMontantMax(Double aMontantMax) 
+   {
+      montantMax = aMontantMax;
+   }
+   
+   /**
+    * Access method for the refParametresEpargne property.
+    * 
+    * @return   the current value of the refParametresEpargne property
+    */
+   public ParametresEpargne getRefParametresEpargne() 
+   {
+      return refParametresEpargne;
+   }
+   
+   /**
+    * Sets the value of the refParametresEpargne property.
+    * 
+    * @param aRefParametresEpargne the new value of the refParametresEpargne property
+    */
+   public void setRefParametresEpargne(ParametresEpargne aRefParametresEpargne) 
+   {
+      refParametresEpargne = aRefParametresEpargne;
+   }
+   
+	/* (non-Javadoc)
+	 * @see ma.co.omnidata.framework.services.entites.IEntite#getFactory()
+	 */
+	public EntiteFactory getFactory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}   
+}
