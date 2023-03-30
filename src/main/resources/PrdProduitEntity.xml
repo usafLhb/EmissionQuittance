@@ -663,4 +663,89 @@
             </basic>
         </attributes>
     </entity>
+    <entity class="Quittance.EmissionQuittance.models.classes.QtcRemiseEntity">
+        <table name="QTC_REMISE" schema="CONVERGPARAM" catalog=""/>
+        <attributes>
+            <basic name="id">
+                <column name="ID" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="numeroremise">
+                <column name="NUMEROREMISE" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="montantremise">
+                <column name="MONTANTREMISE" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="sens">
+                <column name="SENS" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="etat">
+                <column name="ETAT" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="dateetat">
+                <column name="DATEETAT" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="montantconsomme">
+                <column name="MONTANTCONSOMME" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="datecomptabilisation">
+                <column name="DATECOMPTABILISATION" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="idoperationprelevement">
+                <column name="IDOPERATIONPRELEVEMENT" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="montantdiff">
+                <column name="MONTANTDIFF" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="lettreproduit">
+                <column name="LETTREPRODUIT" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="soldeinitial">
+                <column name="SOLDEINITIAL" nullable="false" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Quittance.EmissionQuittance.models.classes.QtcDetailquittanceEntity">
+        <table name="QTC_DETAILQUITTANCE" schema="CONVERGPARAM" catalog=""/>
+        <attributes>
+            <basic name="id">
+                <column name="ID" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="idquittance">
+                <column name="IDQUITTANCE" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="idgarantie">
+                <column name="IDGARANTIE" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="pourcentagegarantie">
+                <column name="POURCENTAGEGARANTIE" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="primenette">
+                <column name="PRIMENETTE" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="montanttaxe">
+                <column name="MONTANTTAXE" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="tauxcommission">
+                <column name="TAUXCOMMISSION" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="montantcommission">
+                <column name="MONTANTCOMMISSION" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="tauxtaxesurcommission">
+                <column name="TAUXTAXESURCOMMISSION" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="montanttaxesurcommission">
+                <column name="MONTANTTAXESURCOMMISSION" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="montantencaise">
+                <column name="MONTANTENCAISE" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="montantencaisse">
+                <column name="MONTANTENCAISSE" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="montanttaxeparafiscale">
+                <column name="MONTANTTAXEPARAFISCALE" nullable="false" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
 </entity-mappings>
