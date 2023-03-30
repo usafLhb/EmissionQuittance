@@ -3,6 +3,7 @@ package Quittance.EmissionQuittance.services.Iservice;
 import Quittance.EmissionQuittance.mapper.QuittanceMapper;
 import Quittance.EmissionQuittance.models.Police;
 import Quittance.EmissionQuittance.repository.PoliceRepository;
+
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.Set;
 public class PoliceServiceImpl implements IPoliceService{
     private PoliceRepository policeRepository;
    // private QuittanceMapper quittanceMapper;
+   //private PoliceMapper PoliceMapper;
 
     @Override
     public void addPolice(Police police) {
