@@ -1,6 +1,5 @@
 package Quittance.EmissionQuittance.models.classes;
 
-import Quittance.EmissionQuittance.models.Police;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,15 +11,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "RefPolice" , schema = "CONVERGPARAM", catalog = "")
+@Table(name = "RefPolice", schema = "CONVERGPARAM", catalog = "")
 public class RefPoliceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "refpolice_seq")
     private Long id;
-
-    @Column(name = "Libelle", nullable = true)
     private String libelle;
 
     @OneToMany(mappedBy = "refPolice")
-    private List<Police> polices;
+    private List<PoliceEntity> polices;
 }
