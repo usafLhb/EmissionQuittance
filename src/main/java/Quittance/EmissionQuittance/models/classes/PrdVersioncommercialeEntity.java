@@ -3,6 +3,8 @@ package Quittance.EmissionQuittance.models.classes;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "PRD_VERSIONCOMMERCIALE", schema = "CONVERGPARAM", catalog = "")
@@ -13,7 +15,7 @@ public class PrdVersioncommercialeEntity {
     private Long id;
     @Basic
     @Column(name = "NOMCOMMERCIAL", nullable = true)
-    private Object nomcommercial;
+    private String nomcommercial;
     @Basic
     @Column(name = "DATEEDEBUT", nullable = true)
     private Object dateedebut;
@@ -56,6 +58,11 @@ public class PrdVersioncommercialeEntity {
     @Basic
     @Column(name = "DATEMAJPRODUIT", nullable = true)
     private Object datemajproduit;
+
+    @OneToMany(mappedBy = "versioncommerciale")
+    private List<PrdVersioncommercialeEntity> prdVersioncommercialeEntities;
+
+
 
 
 }

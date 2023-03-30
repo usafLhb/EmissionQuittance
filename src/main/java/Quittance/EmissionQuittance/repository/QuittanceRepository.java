@@ -1,6 +1,6 @@
 package Quittance.EmissionQuittance.repository;
 
-import Quittance.EmissionQuittance.models.Police;
+import Quittance.EmissionQuittance.models.classes.PoliceEntity;
 import Quittance.EmissionQuittance.models.Quittance;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -15,7 +15,7 @@ public interface QuittanceRepository extends JpaRepository<Quittance,Long> {
    Quittance findQuittanceByCodePolice(String codePolice);
    List<Quittance> findAllByRefQuittance(Long refQuittance);
    List<Quittance> findAllByDateEmissionBetween(Calendar DebutD, Calendar FinD);
-   List<Quittance> findAllByPolice(Police Police);
+   List<Quittance> findAllByPolice(PoliceEntity PoliceEntity);
 
 
 }

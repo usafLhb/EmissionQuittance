@@ -1,9 +1,7 @@
 package Quittance.EmissionQuittance.services.Iservice;
 
-import Quittance.EmissionQuittance.mapper.QuittanceMapper;
-import Quittance.EmissionQuittance.models.Police;
+import Quittance.EmissionQuittance.models.classes.PoliceEntity;
 import Quittance.EmissionQuittance.repository.PoliceRepository;
-
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,54 +12,47 @@ import java.util.Set;
 @Service
 public class PoliceServiceImpl implements IPoliceService{
     private PoliceRepository policeRepository;
-   // private QuittanceMapper quittanceMapper;
-   //private PoliceMapper PoliceMapper;
-
     @Override
-    public void addPolice(Police police) {
-        policeRepository.save(police);
+    public void addPolice(PoliceEntity policeEntity) {
+        policeRepository.save(policeEntity);
     }
     @Override
-    public void updatePolice(Police police) {
-        policeRepository.save(police);
+    public void updatePolice(PoliceEntity policeEntity) {
+        policeRepository.save(policeEntity);
     }
 
     @Override
-    public void deletePolice(Long id) {
-        policeRepository.deleteById(id);
-    }
-    @Override
-    public List<Police> getAllPolices() {
+    public List<PoliceEntity> getAllPolices() {
         return policeRepository.findAll();
     }
     @Override
-    public Set<Police> getPoliceByCodePolice(String codePolice) {
+    public Set<PoliceEntity> getPoliceByCodePolice(String codePolice) {
         return policeRepository.findAllByCodePolice(codePolice);
     }
     @Override
-    public Set <Police> getPoliceByNumClient(String numClient){
+    public Set <PoliceEntity> getPoliceByNumClient(String numClient){
         return policeRepository.findAllByNumClient(numClient);
     }
     @Override
-    public Set <Police> getPoliceByProduit(String produit){
+    public Set <PoliceEntity> getPoliceByProduit(String produit){
         return policeRepository.findAllByProduit(produit);
     }
 
     @Override
-    public Set <Police> getPoliceByNumClientAndProduit(String numClient, String produit){
+    public Set <PoliceEntity> getPoliceByNumClientAndProduit(String numClient, String produit){
         return policeRepository.findAllByNumClientAndProduit(numClient, produit);
     }
     @Override
-    public Set <Police> getPoliceByNumClientAndProduitAndCodePolice(String numClient, String produit, String codePolice){
+    public Set <PoliceEntity> getPoliceByNumClientAndProduitAndCodePolice(String numClient, String produit, String codePolice){
         return policeRepository.findAllByNumClientAndProduitAndCodePolice(numClient, produit, codePolice);
     }
     @Override
-    public Set <Police> getPoliceByNumClientAndCodePolice(String numClient, String codePolice){
+    public Set <PoliceEntity> getPoliceByNumClientAndCodePolice(String numClient, String codePolice){
         return policeRepository.findAllByNumClientAndCodePolice(numClient, codePolice);
     }
     //test
     @Override
-    public Set <Police> getPoliceByProduitAndCodePolice(String produit, String codePolice){
+    public Set <PoliceEntity> getPoliceByProduitAndCodePolice(String produit, String codePolice){
         return policeRepository.findAllByProduitAndCodePolice(produit, codePolice);
     }
 

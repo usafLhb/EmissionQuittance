@@ -1,5 +1,6 @@
 package Quittance.EmissionQuittance.models;
 
+import Quittance.EmissionQuittance.models.classes.PoliceEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,5 +20,5 @@ public class Ville {
     private String libelle;
 
      @OneToMany(mappedBy = "ville")
-    private List<Police> polices;
+    private List<PoliceEntity> policeEntities;
 }

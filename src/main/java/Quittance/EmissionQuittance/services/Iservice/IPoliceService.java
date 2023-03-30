@@ -1,21 +1,20 @@
 package Quittance.EmissionQuittance.services.Iservice;
 
-import Quittance.EmissionQuittance.models.Police;
+import Quittance.EmissionQuittance.models.classes.PoliceEntity;
 
 import java.util.List;
 import java.util.Set;
 
 public interface IPoliceService {
-    void addPolice(Police police);
-    void updatePolice(Police police);
-    void deletePolice(Long id);
-     List<Police> getAllPolices();
-    Set <Police> getPoliceByNumClient(String numClient);
-    Set <Police> getPoliceByProduit(String produit);
-    Set <Police> getPoliceByNumClientAndProduit(String numClient, String produit);
-    Set <Police> getPoliceByNumClientAndProduitAndCodePolice(String numClient, String produit, String codePolice);
-    Set <Police> getPoliceByNumClientAndCodePolice(String numClient, String codePolice);
-    Set <Police> getPoliceByProduitAndCodePolice(String produit, String codePolice);
-    Set <Police> getPoliceByCodePolice(String codePolice);
+    void addPolice(PoliceEntity policeEntity);
+    void updatePolice(PoliceEntity policeEntity);
+     List<PoliceEntity> getAllPolices();
+    Set <PoliceEntity> getPoliceByNumClient(String numClient);
+    Set <PoliceEntity> getPoliceByProduit(String produit);
+    Set <PoliceEntity> getPoliceByNumClientAndProduit(String numClient, String produit);
+    Set <PoliceEntity> getPoliceByNumClientAndProduitAndCodePolice(String numClient, String produit, String codePolice);
+    Set <PoliceEntity> getPoliceByNumClientAndCodePolice(String numClient, String codePolice);
+    Set <PoliceEntity> getPoliceByProduitAndCodePolice(String produit, String codePolice);
+    Set <PoliceEntity> getPoliceByCodePolice(String codePolice);
 
 }

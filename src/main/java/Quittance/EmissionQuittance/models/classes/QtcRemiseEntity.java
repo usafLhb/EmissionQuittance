@@ -1,7 +1,11 @@
 package Quittance.EmissionQuittance.models.classes;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -47,4 +51,19 @@ public class QtcRemiseEntity {
     private Object soldeinitial;
 
 
+    @Entity
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Table(name = "TERME")
+    public static class Terme {
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "terme_seq")
+        private Long id;
+        private String terme;
+
+        @OneToMany(mappedBy = "terme")
+        private List<PoliceEntity> policeEntities;
+
+    }
 }

@@ -1,6 +1,6 @@
 package Quittance.EmissionQuittance.models.classes;
 
-import Quittance.EmissionQuittance.models.Police;
+import Quittance.EmissionQuittance.models.classes.PoliceEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +20,6 @@ public class TermeEntity {
     private String terme;
 
     @OneToMany(mappedBy = "terme")
-    private List<Police> polices;
+    private List<PoliceEntity> polices;
 
 }

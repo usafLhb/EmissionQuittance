@@ -1,5 +1,6 @@
 package Quittance.EmissionQuittance.models;
 
+import Quittance.EmissionQuittance.models.classes.PoliceEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +28,7 @@ public class Prd_VersionCommerciale {
     private Quittance quittance;
 
     @OneToMany(mappedBy = "prd_versionCommerciale")
-    private List<Police> polices;
+    private List<PoliceEntity> policeEntities;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ref_Commerciale_id")

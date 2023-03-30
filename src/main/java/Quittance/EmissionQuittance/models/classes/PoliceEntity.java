@@ -1,12 +1,11 @@
-package Quittance.EmissionQuittance.models;
+package Quittance.EmissionQuittance.models.classes;
 
+import Quittance.EmissionQuittance.models.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import java.util.Calendar;
 import java.util.List;
@@ -16,11 +15,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Police")
-public class Police {
+public class PoliceEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "police_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(unique = true)
     private String codePolice;
     @NotNull
@@ -51,8 +49,8 @@ public class Police {
     private List<Quittance> quittances;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Produit_id")
-    private Produit produit;
+    @JoinColumn(name = "VersionCommerciale_id")
+    private PrdVersioncommercialeEntity versioncommerciale;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Ville_id")
     private Ville ville;
@@ -63,11 +61,11 @@ public class Police {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Terme_id")
-    private Terme terme;
+    private QtcRemiseEntity.Terme terme;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Periodicite_id")
-    private Periodicite periodicite;
+    private PeriodiciteEntity periodicite;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Prd_VersionCommerciale_id")

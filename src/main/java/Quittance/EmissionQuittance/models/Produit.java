@@ -1,5 +1,6 @@
 package Quittance.EmissionQuittance.models;
 
+import Quittance.EmissionQuittance.models.classes.PoliceEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,6 @@ public class Produit {
     private List<Garantie> garanties;
 
     @OneToMany(mappedBy = "produit")
-    private List<Police> polices;
+    private List<PoliceEntity> policeEntities;
 
 }

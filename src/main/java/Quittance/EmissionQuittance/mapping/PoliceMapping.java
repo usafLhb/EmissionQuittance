@@ -1,10 +1,9 @@
 package Quittance.EmissionQuittance.mapping;
 
 import Quittance.EmissionQuittance.dto.PoliceDTO;
-import Quittance.EmissionQuittance.models.Police;
+import Quittance.EmissionQuittance.models.classes.PoliceEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
-import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
@@ -12,9 +11,9 @@ import java.util.List;
 @Mapper
 public interface PoliceMapping {
 
-    PoliceDTO toDto(Police police);
-     Police toEntity(PoliceDTO dto);
-      List<PoliceDTO> toDTOList(List<Police> entities);
-     List<Police> toEntityList(List<PoliceDTO> dtos);
-      void updateEntity(PoliceDTO dto, @MappingTarget Police entity);
+    PoliceDTO toDto(PoliceEntity policeEntity);
+     PoliceEntity toEntity(PoliceDTO dto);
+      List<PoliceDTO> toDTOList(List<PoliceEntity> entities);
+     List<PoliceEntity> toEntityList(List<PoliceDTO> dtos);
+      void updateEntity(PoliceDTO dto, @MappingTarget PoliceEntity entity);
 }

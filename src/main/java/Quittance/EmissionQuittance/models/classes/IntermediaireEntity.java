@@ -1,6 +1,6 @@
 package Quittance.EmissionQuittance.models.classes;
 
-import Quittance.EmissionQuittance.models.Police;
+import Quittance.EmissionQuittance.models.classes.PoliceEntity;
 import Quittance.EmissionQuittance.models.Quittance;
 import Quittance.EmissionQuittance.models.Ref_Commerciale;
 import jakarta.persistence.*;
@@ -30,7 +30,7 @@ public class IntermediaireEntity {
     private QtcQuittanceEntity quittance;
 
     @OneToMany(mappedBy = "prd_versionCommerciale")
-    private List<Police> polices;
+    private List<PoliceEntity> polices;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ref_Commerciale_id")

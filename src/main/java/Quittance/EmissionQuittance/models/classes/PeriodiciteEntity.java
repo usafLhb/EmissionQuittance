@@ -1,4 +1,4 @@
-package Quittance.EmissionQuittance.models;
+package Quittance.EmissionQuittance.models.classes;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,12 +12,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "PERIODECITE")
-public class Periodicite {
+public class PeriodiciteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "periodicite_seq")
     private Long id;
     private String type_periodicite;
 
     @OneToMany(mappedBy = "periodicite")
-    private List<Police> polices;
+    private List<PoliceEntity> polices;
 }
