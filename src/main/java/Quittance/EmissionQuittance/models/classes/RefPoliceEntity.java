@@ -18,6 +18,6 @@ public class RefPoliceEntity {
     private Long id;
     private String libelle;
 
-    @OneToMany(mappedBy = "refPolice")
-    private List<PoliceEntity> polices;
+   /* @OneToMany(mappedBy = "refPolice")
+    private List<PoliceEntity> polices;*/
 }

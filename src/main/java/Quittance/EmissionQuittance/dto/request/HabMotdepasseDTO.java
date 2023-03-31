@@ -3,25 +3,13 @@ package Quittance.EmissionQuittance.dto.request;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 
-@Data
-public class HabMotdepasseDTO {
 
-    @Basic
-    @Column(name = "COURANT", nullable = true)
-    private Object courant;
-    @Basic
 
-    private Object datecreation;
-    @Basic
+public record  HabMotdepasseDTO (LocalDate datecreation, String motdepasse,String  realmotdepasse, Long idutilisateur){
 
-    private Object realmotdepasse;
-    @Basic
 
-    private Object motdepasse;
-    @Basic
-
-    private Object idutilisateur;
 
 
 }

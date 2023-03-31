@@ -59,8 +59,8 @@ public class PrdVersioncommercialeEntity {
     @Column(name = "DATEMAJPRODUIT", nullable = true)
     private Object datemajproduit;
 
-    @OneToMany(mappedBy = "versioncommerciale")
-    private List<PrdVersioncommercialeEntity> prdVersioncommercialeEntities;
+    /*@OneToMany(mappedBy = "versioncommerciale")
+    private List<PrdVersioncommercialeEntity> prdVersioncommercialeEntities;*/
 
 
 

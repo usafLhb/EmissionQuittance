@@ -1,6 +1,6 @@
 package Quittance.EmissionQuittance.models.classes;
 
-import Quittance.EmissionQuittance.models.*;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
-import java.util.List;
+
 
 @Entity
 @Data
@@ -45,31 +45,32 @@ public class PoliceEntity {
     private Double mnt_taxe_eve ;
     private Double mnt_taxe_parafiscale ;
 
-    @OneToMany(mappedBy = "police")
-    private List<Quittance> quittances;
+    //@OneToMany(mappedBy = "police")
+   // private List<QtcQuittanceEntity> quittances;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+  /*  @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "VersionCommerciale_id")
-    private PrdVersioncommercialeEntity versioncommerciale;
-    @ManyToOne(fetch = FetchType.LAZY)
+    private PrdVersioncommercialeEntity versioncommerciale;*/
+
+   /* @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Ville_id")
-    private Ville ville;
+    private Ville ville;*/
 
-    @ManyToOne(fetch = FetchType.LAZY)
+   /* @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RefPolice_ID")
-    private RefPolice refPolice;
+    private RefPolice refPolice;*/
 
-    @ManyToOne(fetch = FetchType.LAZY)
+  /*  @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Terme_id")
-    private QtcRemiseEntity.Terme terme;
+    private QtcRemiseEntity.Terme terme;*/
 
-    @ManyToOne(fetch = FetchType.LAZY)
+ /*   @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Periodicite_id")
     private PeriodiciteEntity periodicite;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Prd_VersionCommerciale_id")
-    private Prd_VersionCommerciale prd_versionCommerciale;
+    private Prd_VersionCommerciale prd_versionCommerciale;*/
 
 
 
