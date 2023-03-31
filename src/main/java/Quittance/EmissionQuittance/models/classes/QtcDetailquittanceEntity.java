@@ -1,14 +1,15 @@
 package Quittance.EmissionQuittance.models.classes;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "QTC_DETAILQUITTANCE", schema = "CONVERGPARAM", catalog = "")
 public class QtcDetailquittanceEntity {
     @Basic
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = true)
     private Object id;
     @Basic
@@ -48,107 +49,9 @@ public class QtcDetailquittanceEntity {
     @Column(name = "MONTANTTAXEPARAFISCALE", nullable = true)
     private Object montanttaxeparafiscale;
 
-    public Object getId() {
-        return id;
-    }
 
-    public void setId(Object id) {
-        this.id = id;
-    }
 
-    public Object getIdquittance() {
-        return idquittance;
-    }
 
-    public void setIdquittance(Object idquittance) {
-        this.idquittance = idquittance;
-    }
 
-    public Object getIdgarantie() {
-        return idgarantie;
-    }
 
-    public void setIdgarantie(Object idgarantie) {
-        this.idgarantie = idgarantie;
-    }
-
-    public Object getPourcentagegarantie() {
-        return pourcentagegarantie;
-    }
-
-    public void setPourcentagegarantie(Object pourcentagegarantie) {
-        this.pourcentagegarantie = pourcentagegarantie;
-    }
-
-    public Object getPrimenette() {
-        return primenette;
-    }
-
-    public void setPrimenette(Object primenette) {
-        this.primenette = primenette;
-    }
-
-    public Object getMontanttaxe() {
-        return montanttaxe;
-    }
-
-    public void setMontanttaxe(Object montanttaxe) {
-        this.montanttaxe = montanttaxe;
-    }
-
-    public Object getTauxcommission() {
-        return tauxcommission;
-    }
-
-    public void setTauxcommission(Object tauxcommission) {
-        this.tauxcommission = tauxcommission;
-    }
-
-    public Object getMontantcommission() {
-        return montantcommission;
-    }
-
-    public void setMontantcommission(Object montantcommission) {
-        this.montantcommission = montantcommission;
-    }
-
-    public Object getTauxtaxesurcommission() {
-        return tauxtaxesurcommission;
-    }
-
-    public void setTauxtaxesurcommission(Object tauxtaxesurcommission) {
-        this.tauxtaxesurcommission = tauxtaxesurcommission;
-    }
-
-    public Object getMontanttaxesurcommission() {
-        return montanttaxesurcommission;
-    }
-
-    public void setMontanttaxesurcommission(Object montanttaxesurcommission) {
-        this.montanttaxesurcommission = montanttaxesurcommission;
-    }
-
-    public Object getMontantencaise() {
-        return montantencaise;
-    }
-
-    public void setMontantencaise(Object montantencaise) {
-        this.montantencaise = montantencaise;
-    }
-
-    public Object getMontantencaisse() {
-        return montantencaisse;
-    }
-
-    public void setMontantencaisse(Object montantencaisse) {
-        this.montantencaisse = montantencaisse;
-    }
-
-    public Object getMontanttaxeparafiscale() {
-        return montanttaxeparafiscale;
-    }
-
-    public void setMontanttaxeparafiscale(Object montanttaxeparafiscale) {
-        this.montanttaxeparafiscale = montanttaxeparafiscale;
-    }
 }
