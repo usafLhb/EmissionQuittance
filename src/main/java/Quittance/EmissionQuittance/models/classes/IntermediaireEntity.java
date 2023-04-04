@@ -21,6 +21,25 @@ public class IntermediaireEntity {
     @Column(name = "NOMIntermediaire")
     private String nomCommercial ;
 
+    FK_[CODTYPIN]
+            ,[CODEINTE]
+            ,[CODEVILL]
+            ,[RAISOCIN]
+            ,[NOM_RESP]
+            ,[NOM_INTE]
+            ,[ADREINTE]
+            ,[NUMTELIN]
+            ,[NUMFAXIN]
+            ,[E_MAILIN]
+            ,[SITUINTE]
+            ,[DATSITIN]
+            ,[CODVIEIN]
+            ,[CONIARIN]
+            ,[CONVIEIN]
+            ,[NUM_IFIN]
+            ,[NUMPATIN]
+            ,[NUM_RCTI]
+
   /*  @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Quittance_id")
     private QtcQuittanceEntity quittance;
