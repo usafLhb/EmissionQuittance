@@ -60,6 +60,7 @@ public class PrdVersioncommercialeEntity {
     @Column(name = "DATEMAJPRODUIT", nullable = true)
     private Calendar datemajproduit;
 
-    @OneToMany(mappedBy = "prdVersioncommerciale")
-    private List<IntermediaireEntity> intermediaires;
+   @ManyToOne(fetch = FetchType.LAZY)
+   @JoinColumn(name = "intermediaire", referencedColumnName = "ID")
+    private IntermediaireEntity intermediaire;
 }

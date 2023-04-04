@@ -25,10 +25,14 @@ public class IntermediaireEntity {
     private RefIntermediaireEntity refIntermediaire;
     @OneToMany(mappedBy = "intermediaire")
     private List<QtcQuittanceEntity> quittances;
-    @OneToMany(mappedBy = "prd_versionCommerciale")
+    @OneToMany(mappedBy = "intermediaire")
     private List<PoliceEntity> polices;
 
      @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ref_Commerciale_id")
     private PrdVersioncommercialeEntity prd_versionCommerciale;
+
+     @OneToMany(mappedBy = "intermediaire")
+    private List<PrdVersioncommercialeEntity> prd_versionCommerciales;
+
 }

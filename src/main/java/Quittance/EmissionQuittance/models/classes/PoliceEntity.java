@@ -46,8 +46,9 @@ public class PoliceEntity {
     private Double mnt_taxe_eve ;
     private Double mnt_taxe_parafiscale ;
 
-    @OneToMany(mappedBy = "police")
-    private List<QtcQuittanceEntity> quittances;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "quittance_id")
+    private QtcQuittanceEntity quittance;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "VersionCommerciale_id")
@@ -74,8 +75,8 @@ public class PoliceEntity {
     private PrdVersioncommercialeEntity prd_versionCommerciale;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "RefIntermediaire_id")
-    private RefIntermediaireEntity refIntermediaire;
+    @JoinColumn(name = "intermediaire_id")
+    private IntermediaireEntity intermediaire;
 
 
 }

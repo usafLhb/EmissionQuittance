@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Calendar;
+import java.util.List;
 
 @Entity
 @Data
@@ -152,5 +153,8 @@ public class QtcQuittanceEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Intermediaire_ID")
     private IntermediaireEntity intermediaire;
+
+
+
 
 }
