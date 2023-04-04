@@ -149,5 +149,8 @@ public class QtcQuittanceEntity {
     @Column(name = "FORCEE", nullable = true)
     private Long forcee;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Intermediaire_ID")
+    private IntermediaireEntity intermediaire;
 
 }

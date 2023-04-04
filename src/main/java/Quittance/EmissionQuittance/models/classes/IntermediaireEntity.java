@@ -23,9 +23,8 @@ public class IntermediaireEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ref_intermediaire")
     private RefIntermediaireEntity refIntermediaire;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Quittance_id")
-    private QtcQuittanceEntity quittance;
+    @OneToMany(mappedBy = "intermediaire")
+    private List<QtcQuittanceEntity> quittances;
     @OneToMany(mappedBy = "prd_versionCommerciale")
     private List<PoliceEntity> polices;
 
