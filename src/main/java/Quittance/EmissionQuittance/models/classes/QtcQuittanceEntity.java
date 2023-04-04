@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "QTC_QUITTANCE", schema = "CONVERGPARAM", catalog = "")
+@Table(name = "QTC_QUITTANCE" )
 public class QtcQuittanceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

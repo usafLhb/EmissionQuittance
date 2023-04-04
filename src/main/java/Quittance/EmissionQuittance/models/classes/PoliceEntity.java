@@ -14,7 +14,7 @@ import java.util.Calendar;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Police")
+//@Table(name = "Police")
 public class PoliceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

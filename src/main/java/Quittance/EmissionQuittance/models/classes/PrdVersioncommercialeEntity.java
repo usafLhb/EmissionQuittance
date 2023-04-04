@@ -3,11 +3,12 @@ package Quittance.EmissionQuittance.models.classes;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Calendar;
 import java.util.List;
 
 @Entity
 @Data
-@Table(name = "PRD_VERSIONCOMMERCIALE", schema = "CONVERGPARAM", catalog = "")
+//@Table(name = "PRD_VERSIONCOMMERCIALE" )
 public class PrdVersioncommercialeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,46 +19,46 @@ public class PrdVersioncommercialeEntity {
     private String nomcommercial;
     @Basic
     @Column(name = "DATEEDEBUT", nullable = true)
-    private Object dateedebut;
+    private Calendar dateedebut;
     @Basic
     @Column(name = "DATEFIN", nullable = true)
-    private Object datefin;
+    private Calendar datefin;
     @Basic
     @Column(name = "COMPTEBANCAIREPRESTATION", nullable = true)
-    private Object comptebancaireprestation;
+    private String comptebancaireprestation;
     @Basic
     @Column(name = "COMPTEBANCAIRESERVICE", nullable = true)
-    private Object comptebancaireservice;
+    private String comptebancaireservice;
     @Basic
     @Column(name = "REFHOMOLOGATION", nullable = true)
-    private Object refhomologation;
+    private Long refhomologation;
     @Basic
     @Column(name = "CODEINTERMEDIAIRE", nullable = true)
-    private Object codeintermediaire;
+    private int codeintermediaire;
     @Basic
     @Column(name = "IDPRODUIT", nullable = true)
-    private Object idproduit;
+    private int idproduit;
     @Basic
     @Column(name = "IDSOCIETE", nullable = true)
-    private Object idsociete;
+    private int idsociete;
     @Basic
     @Column(name = "DELAIMODIFENINSTANCE", nullable = true)
-    private Object delaimodifeninstance;
+    private Calendar delaimodifeninstance;
     @Basic
     @Column(name = "NOMBREMAXADHESION", nullable = true)
-    private Object nombremaxadhesion;
+    private Long nombremaxadhesion;
     @Basic
     @Column(name = "CODE", nullable = true)
-    private Object code;
+    private int code;
     @Basic
     @Column(name = "NOMCOMMERCIAL_AR", nullable = true)
-    private Object nomcommercialAr;
+    private String nomcommercialAr;
     @Basic
     @Column(name = "PLAFONDINDEMNITE", nullable = true)
-    private Object plafondindemnite;
+    private String plafondindemnite;
     @Basic
     @Column(name = "DATEMAJPRODUIT", nullable = true)
-    private Object datemajproduit;
+    private Calendar datemajproduit;
 
     /*@OneToMany(mappedBy = "versioncommerciale")
     private List<PrdVersioncommercialeEntity> prdVersioncommercialeEntities;*/

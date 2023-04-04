@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Intermediaire", schema = "CONVERGPARAM", catalog = "")
+//@Table(name = "Intermediaire")
+//, schema = "CONVERGPARAM", catalog = ""
 public class IntermediaireEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

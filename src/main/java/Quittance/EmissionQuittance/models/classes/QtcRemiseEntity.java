@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "QTC_REMISE", schema = "CONVERGPARAM", catalog = "")
+@Table(name = "QTC_REMISE" )
 public class QtcRemiseEntity {
 
     @Id

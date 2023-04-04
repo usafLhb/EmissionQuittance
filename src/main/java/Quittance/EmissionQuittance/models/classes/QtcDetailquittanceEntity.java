@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "QTC_DETAILQUITTANCE", schema = "CONVERGPARAM", catalog = "")
+//@Table(name = "QTC_DETAILQUITTANCE" )
 public class QtcDetailquittanceEntity {
     @Basic
     @Id

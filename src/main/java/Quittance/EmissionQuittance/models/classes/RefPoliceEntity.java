@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "RefPolice", schema = "CONVERGPARAM", catalog = "")
+@Table(name = "RefPolice" )
 public class RefPoliceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "refpolice_seq")

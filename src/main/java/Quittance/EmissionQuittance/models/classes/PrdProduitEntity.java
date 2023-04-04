@@ -5,13 +5,13 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "PRD_PRODUIT", schema = "CONVERGPARAM", catalog = "")
+//@Table(name = "PRD_PRODUIT" )
 public class PrdProduitEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
-    @Basic
+ /*   @Basic
     @Column(name = "AGEMAXADHERENT", nullable = true)
     private Object agemaxadherent;
     @Basic
@@ -175,7 +175,7 @@ public class PrdProduitEntity {
     private Object modulable;
     @Basic
     @Column(name = "DELAIPREAVIS", nullable = true)
-    private Object delaipreavis;
+    private Object delaipreavis;*/
 
 
 }

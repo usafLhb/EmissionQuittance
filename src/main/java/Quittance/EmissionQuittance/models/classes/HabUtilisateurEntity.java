@@ -5,13 +5,14 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "HAB_UTILISATEUR", schema = "CONVERGPARAM", catalog = "")
+//@Table(name = "HAB_UTILISATEUR")
+//, schema = "CONVERGPARAM", catalog = ""
 public class HabUtilisateurEntity {
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = true)
     private Long id;
-    @Basic
+/*     @Basic
     @Column(name = "BLOQUE", nullable = true)
     private Object bloque;
     @Basic
@@ -67,7 +68,7 @@ public class HabUtilisateurEntity {
     private Object autorisetoutproduit;
     @Basic
     @Column(name = "AUTORISETOUTEAGENCE", nullable = true)
-    private Object autorisetouteagence;
+    private Object autorisetouteagence;*/
 
 
 }

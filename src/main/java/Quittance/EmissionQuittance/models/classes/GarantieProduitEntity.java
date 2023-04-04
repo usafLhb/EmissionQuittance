@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Garantie_Produit", schema = "CONVERGPARAM", catalog = "")
+@Table(name = "Garantie_Produit")
+
 public class GarantieProduitEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

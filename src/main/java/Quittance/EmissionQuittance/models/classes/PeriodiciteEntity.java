@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "PERIODECITE")
+//@Table(name = "PERIODECITE")
 public class PeriodiciteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "periodicite_seq")

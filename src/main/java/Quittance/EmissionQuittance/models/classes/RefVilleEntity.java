@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "REF_VILLE", schema = "CONVERGPARAM", catalog = "")
+@Table(name = "REF_VILLE" )
 public class RefVilleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
