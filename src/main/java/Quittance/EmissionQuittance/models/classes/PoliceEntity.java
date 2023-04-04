@@ -48,30 +48,29 @@ public class PoliceEntity {
     //@OneToMany(mappedBy = "police")
    // private List<QtcQuittanceEntity> quittances;
 
-  /*  @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "VersionCommerciale_id")
-    private PrdVersioncommercialeEntity versioncommerciale;*/
+    private PrdVersioncommercialeEntity versioncommerciale;
 
-   /* @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Ville_id")
-    private Ville ville;*/
+    private Ville ville;
 
-   /* @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RefPolice_ID")
-    private RefPolice refPolice;*/
+    private RefPoliceEntity refPolice;
 
-  /*  @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Terme_id")
-    private QtcRemiseEntity.Terme terme;*/
+    private TermeEntity terme;
 
- /*   @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Periodicite_id")
     private PeriodiciteEntity periodicite;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Prd_VersionCommerciale_id")
-    private Prd_VersionCommerciale prd_versionCommerciale;*/
-
+    private PrdVersioncommercialeEntity prd_versionCommerciale;
 
 
 

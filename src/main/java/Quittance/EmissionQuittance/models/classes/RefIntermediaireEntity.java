@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -17,6 +19,6 @@ public class RefIntermediaireEntity {
     private Long id;
     private String libelle ;
 
-    /*@OneToMany(mappedBy = "ref_Commerciale")
-    private List<IntermediaireEntity> intermediaire;*/
+    @OneToMany(mappedBy = "ref_Commerciale")
+    private List<IntermediaireEntity> intermediaire;
 }

@@ -18,6 +18,6 @@ public class PeriodiciteEntity {
     private Long id;
     private String type_periodicite;
 
-  /*  @OneToMany(mappedBy = "periodicite")
-    private List<PoliceEntity> polices;*/
+    @OneToMany(mappedBy = "periodicite")
+    private List<PoliceEntity> polices;
 }

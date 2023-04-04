@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Calendar;
 import java.util.List;
 
 @Entity
@@ -18,38 +19,36 @@ public class QtcRemiseEntity {
     private Long id;
     @Basic
     @Column(name = "NUMEROREMISE", nullable = true)
-    private Object numeroremise;
+    private Long numeroremise;
     @Basic
     @Column(name = "MONTANTREMISE", nullable = true)
-    private Object montantremise;
+    private Double montantremise;
     @Basic
     @Column(name = "SENS", nullable = true)
-    private Object sens;
+    private String sens;
     @Basic
     @Column(name = "ETAT", nullable = true)
-    private Object etat;
+    private String etat;
     @Basic
     @Column(name = "DATEETAT", nullable = true)
-    private Object dateetat;
+    private Calendar dateetat;
     @Basic
     @Column(name = "MONTANTCONSOMME", nullable = true)
-    private Object montantconsomme;
+    private Double montantconsomme;
     @Basic
     @Column(name = "DATECOMPTABILISATION", nullable = true)
-    private Object datecomptabilisation;
+    private Calendar datecomptabilisation;
     @Basic
     @Column(name = "IDOPERATIONPRELEVEMENT", nullable = true)
-    private Object idoperationprelevement;
+    private Long idoperationprelevement;
     @Basic
     @Column(name = "MONTANTDIFF", nullable = true)
-    private Object montantdiff;
+    private Double montantdiff;
     @Basic
     @Column(name = "LETTREPRODUIT", nullable = true)
-    private Object lettreproduit;
+    private String lettreproduit;
     @Basic
     @Column(name = "SOLDEINITIAL", nullable = true)
-    private Object soldeinitial;
-
-
+    private Double soldeinitial;
 
 }

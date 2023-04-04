@@ -60,10 +60,7 @@ public class PrdVersioncommercialeEntity {
     @Column(name = "DATEMAJPRODUIT", nullable = true)
     private Calendar datemajproduit;
 
-    /*@OneToMany(mappedBy = "versioncommerciale")
-    private List<PrdVersioncommercialeEntity> prdVersioncommercialeEntities;*/
-
-
-
+    @OneToMany(mappedBy = "versioncommerciale")
+    private List<PrdVersioncommercialeEntity> prdVersioncommercialeEntities;
 
 }

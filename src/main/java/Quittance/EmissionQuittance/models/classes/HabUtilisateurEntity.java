@@ -3,6 +3,8 @@ package Quittance.EmissionQuittance.models.classes;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Calendar;
+
 @Entity
 @Data
 //@Table(name = "HAB_UTILISATEUR")
@@ -12,24 +14,24 @@ public class HabUtilisateurEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = true)
     private Long id;
-/*     @Basic
+    @Basic
     @Column(name = "BLOQUE", nullable = true)
-    private Object bloque;
+    private boolean bloque;
     @Basic
     @Column(name = "CHANGMOTDEPASSEALACONNEXION", nullable = true)
-    private Object changmotdepassealaconnexion;
+    private String changmotdepassealaconnexion;
     @Basic
     @Column(name = "DATEDEBUTACCES", nullable = true)
-    private Object datedebutacces;
+    private Calendar datedebutacces;
     @Basic
     @Column(name = "DATEFINACCES", nullable = true)
-    private Object datefinacces;
+    private Calendar datefinacces;
     @Basic
     @Column(name = "EMAIL", nullable = true)
-    private Object email;
+    private String email;
     @Basic
     @Column(name = "LOGIN", nullable = true)
-    private Object login;
+    private  login;
     @Basic
     @Column(name = "NOM", nullable = true)
     private Object nom;
@@ -68,7 +70,7 @@ public class HabUtilisateurEntity {
     private Object autorisetoutproduit;
     @Basic
     @Column(name = "AUTORISETOUTEAGENCE", nullable = true)
-    private Object autorisetouteagence;*/
+    private Object autorisetouteagence;
 
 
 }
