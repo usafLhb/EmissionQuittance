@@ -13,31 +13,29 @@ public class RefGarantieEntity {
     private Long id;
     @Basic
     @Column(name = "CODE", nullable = true)
-    private Object code;
+    private String code;
     @Basic
     @Column(name = "LIBELLE", nullable = true)
-    private Object libelle;
+    private String libelle;
     @Basic
     @Column(name = "LIBELLE_ABREGE", nullable = true)
-    private Object libelleAbrege;
+    private String libelleAbrege;
     @Basic
     @Column(name = "PLAFOND", nullable = true)
-    private Object plafond;
+    private Double plafond;
     @Basic
     @Column(name = "TAUXPRIMECATNAT", nullable = true)
-    private Object tauxprimecatnat;
+    private Double tauxprimecatnat;
     @Basic
     @Column(name = "TAUXPRIMERCCATNAT", nullable = true)
-    private Object tauxprimerccatnat;
+    private Double tauxprimerccatnat;
     @Basic
     @Column(name = "LIBELLE_AR", nullable = true)
-    private Object libelleAr;
+    private String libelleAr;
     @Basic
     @Column(name = "IDTYPEGARANTIE", nullable = true)
-    private Object idtypegarantie;
+    private Long idtypegarantie;
     @Basic
     @Column(name = "CODECOMPTABLE", nullable = true)
-    private Object codecomptable;
-
-
+    private String codecomptable;
 }
