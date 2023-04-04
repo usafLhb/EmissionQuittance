@@ -5,30 +5,31 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@Table(name = "Intermediaire")
+@Table(name = "Intermediaire")
 //, schema = "CONVERGPARAM", catalog = ""
 public class IntermediaireEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
-     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ref_intermediaire")
-    private RefIntermediaireEntity refIntermediaire;
     @Column(name = "NOMIntermediaire")
     private String nomCommercial ;
 
-  /*  @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ref_intermediaire")
+    private RefIntermediaireEntity refIntermediaire;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Quittance_id")
     private QtcQuittanceEntity quittance;
-
     @OneToMany(mappedBy = "prd_versionCommerciale")
     private List<PoliceEntity> polices;
 
      @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ref_Commerciale_id")
-    private Ref_Commerciale refCommerciale;*/
+    private PrdVersioncommercialeEntity prd_versionCommerciale;
 }

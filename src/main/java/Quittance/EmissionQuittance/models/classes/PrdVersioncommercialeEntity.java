@@ -8,11 +8,11 @@ import java.util.List;
 
 @Entity
 @Data
-//@Table(name = "PRD_VERSIONCOMMERCIALE" )
+@Table(name = "PRD_VERSIONCOMMERCIALE" )
 public class PrdVersioncommercialeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID" )
+    @Column(name = "ID")
     private Long id;
     @Basic
     @Column(name = "NOMCOMMERCIAL", nullable = true)
@@ -60,6 +60,6 @@ public class PrdVersioncommercialeEntity {
     @Column(name = "DATEMAJPRODUIT", nullable = true)
     private Calendar datemajproduit;
 
-
-
+    @OneToMany(mappedBy = "prdVersioncommerciale")
+    private List<IntermediaireEntity> intermediaires;
 }

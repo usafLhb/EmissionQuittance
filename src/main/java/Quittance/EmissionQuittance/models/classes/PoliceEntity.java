@@ -8,13 +8,14 @@ import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
+import java.util.List;
 
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@Table(name = "Police")
+@Table(name = "Police")
 public class PoliceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,8 +46,8 @@ public class PoliceEntity {
     private Double mnt_taxe_eve ;
     private Double mnt_taxe_parafiscale ;
 
-    //@OneToMany(mappedBy = "police")
-   // private List<QtcQuittanceEntity> quittances;
+    @OneToMany(mappedBy = "police")
+    private List<QtcQuittanceEntity> quittances;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "VersionCommerciale_id")
@@ -72,6 +73,9 @@ public class PoliceEntity {
     @JoinColumn(name = "Prd_VersionCommerciale_id")
     private PrdVersioncommercialeEntity prd_versionCommerciale;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RefIntermediaire_id")
+    private RefIntermediaireEntity refIntermediaire;
 
 
 }
