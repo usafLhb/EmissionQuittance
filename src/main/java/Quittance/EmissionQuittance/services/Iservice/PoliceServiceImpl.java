@@ -10,9 +10,9 @@ import java.util.Set;
 
 @AllArgsConstructor
 @Service
-public class PoliceServiceImpl implements IPoliceService{
-    private HabMotdepasseMapper habMotdepasseMapper;
-    @Override
+public class PoliceServiceImpl {
+  /*   private HabMotdepasseMapper habMotdepasseMapper;
+   @Override
     public void addPolice(PoliceEntity policeEntity) {
       //  policeRepository.save(policeEntity);
     }
@@ -56,6 +56,6 @@ public class PoliceServiceImpl implements IPoliceService{
     public Set <PoliceEntity> getPoliceByProduitAndCodePolice(String produit, String codePolice){
        // return policeRepository.findAllByProduitAndCodePolice(produit, codePolice);
     }
-
+*/
 
 }

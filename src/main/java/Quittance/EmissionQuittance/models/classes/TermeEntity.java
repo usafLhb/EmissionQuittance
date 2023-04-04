@@ -19,7 +19,7 @@ public class TermeEntity {
     private Long id;
     private String terme;
 
-    @OneToMany(mappedBy = "terme")
-    private List<PoliceEntity> polices;
+  /*  @OneToMany(mappedBy = "terme")
+    private List<PoliceEntity> polices;*/
 
 }
