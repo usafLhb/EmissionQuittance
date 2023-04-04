@@ -31,46 +31,46 @@ public class HabUtilisateurEntity {
     private String email;
     @Basic
     @Column(name = "LOGIN", nullable = true)
-    private  login;
+    private String login;
     @Basic
     @Column(name = "NOM", nullable = true)
-    private Object nom;
+    private String nom;
     @Basic
     @Column(name = "PRENOM", nullable = true)
-    private Object prenom;
+    private String prenom;
     @Basic
     @Column(name = "SUPERUTILISATEUR", nullable = true)
-    private Object superutilisateur;
+    private String superutilisateur;
     @Basic
     @Column(name = "TELEPHONE", nullable = true)
-    private Object telephone;
+    private String telephone;
     @Basic
     @Column(name = "TYPEUTILISATEUR", nullable = true)
-    private Object typeutilisateur;
+    private String typeutilisateur;
     @Basic
     @Column(name = "MATRICULE", nullable = true)
-    private Object matricule;
+    private String matricule;
     @Basic
     @Column(name = "MULTISOCIETE", nullable = true)
-    private Object multisociete;
+    private String multisociete;
     @Basic
     @Column(name = "MODEPACK", nullable = true)
-    private Object modepack;
+    private String modepack;
     @Basic
     @Column(name = "IDENTITE", nullable = true)
-    private Object identite;
+    private String identite;
     @Basic
     @Column(name = "IDPROFIL", nullable = true)
-    private Object idprofil;
+    private Long idprofil;
     @Basic
     @Column(name = "IDRESPONSABLE", nullable = true)
-    private Object idresponsable;
+    private Long idresponsable;
     @Basic
     @Column(name = "AUTORISETOUTPRODUIT", nullable = true)
-    private Object autorisetoutproduit;
+    private String autorisetoutproduit;
     @Basic
     @Column(name = "AUTORISETOUTEAGENCE", nullable = true)
-    private Object autorisetouteagence;
+    private String autorisetouteagence;
 
 
 }

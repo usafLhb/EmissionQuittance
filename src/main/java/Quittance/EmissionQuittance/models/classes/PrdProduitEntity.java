@@ -42,7 +42,7 @@ public class PrdProduitEntity {
     private int agelimiteenfant;
     @Basic
     @Column(name = "AVECBENEFICIAIRES", nullable = true)
-    private Object avecbeneficiaires;
+    private boolean avecbeneficiaires;
     @Basic
     @Column(name = "AVECCOASSURANCE", nullable = true)
     private int aveccoassurance;

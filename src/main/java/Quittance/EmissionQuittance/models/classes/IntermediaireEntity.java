@@ -15,9 +15,9 @@ public class IntermediaireEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
-   /* @ManyToOne(fetch = FetchType.LAZY)
+     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ref_intermediaire")
-    private Ref_Commerciale ref_Commerciale;*/
+    private RefIntermediaireEntity refIntermediaire;
     @Column(name = "NOMIntermediaire")
     private String nomCommercial ;
 

@@ -13,19 +13,19 @@ public class RefVilleEntity {
     private Long id;
     @Basic
     @Column(name = "CODE", nullable = true)
-    private Object code;
+    private Long code;
     @Basic
     @Column(name = "LIBELLE", nullable = true)
-    private Object libelle;
+    private String libelle;
     @Basic
     @Column(name = "IDPAYS", nullable = true)
-    private Object idpays;
+    private Long idpays;
     @Basic
     @Column(name = "ZONE_SISMIQUE", nullable = true)
-    private Object zoneSismique;
+    private Long zoneSismique;
     @Basic
     @Column(name = "ZONE_INNONDATION", nullable = true)
-    private Object zoneInnondation;
+    private Long zoneInnondation;
 
 
 }

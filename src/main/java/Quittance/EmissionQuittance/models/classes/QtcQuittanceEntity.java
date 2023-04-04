@@ -3,6 +3,8 @@ package Quittance.EmissionQuittance.models.classes;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Calendar;
+
 @Entity
 @Data
 @Table(name = "QTC_QUITTANCE" )
@@ -13,139 +15,139 @@ public class QtcQuittanceEntity {
     private Long id;
     @Basic
     @Column(name = "CODESOCIETE", nullable = true)
-    private Object codesociete;
+    private int codesociete;
     @Basic
     @Column(name = "NATUREQUITTANCE", nullable = true)
-    private Object naturequittance;
+    private String naturequittance;
     @Basic
     @Column(name = "NUMEROQUITTANCE", nullable = true)
-    private Object numeroquittance;
+    private String numeroquittance;
     @Basic
     @Column(name = "CODEPOLICE", nullable = true)
-    private Object codepolice;
+    private String codepolice;
     @Basic
     @Column(name = "NUMEROQUITTANCEORIGINE", nullable = true)
-    private Object numeroquittanceorigine;
+    private String numeroquittanceorigine;
     @Basic
     @Column(name = "CODECLIENT", nullable = true)
-    private Object codeclient;
+    private String codeclient;
     @Basic
     @Column(name = "CODEINTERMEDIAIRE", nullable = true)
-    private Object codeintermediaire;
+    private Long codeintermediaire;
     @Basic
     @Column(name = "CODEBRANCHE", nullable = true)
-    private Object codebranche;
+    private Long codebranche;
     @Basic
     @Column(name = "NOMCLIENT", nullable = true)
-    private Object nomclient;
+    private String nomclient;
     @Basic
     @Column(name = "PRENOMCLIENT", nullable = true)
-    private Object prenomclient;
+    private String prenomclient;
     @Basic
     @Column(name = "ADRESSECLIENT", nullable = true)
-    private Object adresseclient;
+    private String adresseclient;
     @Basic
     @Column(name = "VILLECLIENT", nullable = true)
-    private Object villeclient;
+    private String villeclient;
     @Basic
     @Column(name = "TYPEQUITTANCE", nullable = true)
-    private Object typequittance;
+    private String typequittance;
     @Basic
     @Column(name = "PRIMENETTE", nullable = true)
-    private Object primenette;
+    private double primenette;
     @Basic
     @Column(name = "TAUXTAXE", nullable = true)
-    private Object tauxtaxe;
+    private double tauxtaxe;
     @Basic
     @Column(name = "MONTANTTAXE", nullable = true)
-    private Object montanttaxe;
+    private double montanttaxe;
     @Basic
     @Column(name = "MONTANTACCESSOIRE", nullable = true)
-    private Object montantaccessoire;
+    private double montantaccessoire;
     @Basic
     @Column(name = "MONTANTENCAISSE", nullable = true)
-    private Object montantencaisse;
+    private double montantencaisse;
     @Basic
     @Column(name = "MONTANTCOMMISIONRETENUE", nullable = true)
-    private Object montantcommisionretenue;
+    private double montantcommisionretenue;
     @Basic
     @Column(name = "MONTANTCOMMISIONRISTOURNE", nullable = true)
-    private Object montantcommisionristourne;
+    private double montantcommisionristourne;
     @Basic
     @Column(name = "MONTONTREMISE", nullable = true)
-    private Object montontremise;
+    private double montontremise;
     @Basic
     @Column(name = "PERIODICITE", nullable = true)
-    private Object periodicite;
+    private String periodicite;
     @Basic
     @Column(name = "DATEDEBUT", nullable = true)
-    private Object datedebut;
+    private Calendar datedebut;
     @Basic
     @Column(name = "DATEFIN", nullable = true)
-    private Object datefin;
+    private Calendar datefin;
     @Basic
     @Column(name = "DATEEMISSION", nullable = true)
-    private Object dateemission;
+    private Calendar dateemission;
     @Basic
     @Column(name = "ETATQUITTANCE", nullable = true)
-    private Object etatquittance;
+    private String etatquittance;
     @Basic
     @Column(name = "DATEETAT", nullable = true)
-    private Object dateetat;
+    private Calendar dateetat;
     @Basic
     @Column(name = "DATEEFFET", nullable = true)
-    private Object dateeffet;
+    private Calendar dateeffet;
     @Basic
     @Column(name = "IDOPERATIONPRELEVEMENT", nullable = true)
-    private Object idoperationprelevement;
+    private Long idoperationprelevement;
     @Basic
     @Column(name = "IDUTILISATEURRISTOURNE", nullable = true)
-    private Object idutilisateurristourne;
+    private Long idutilisateurristourne;
     @Basic
     @Column(name = "IDUTILISATEURVALIDATEUR", nullable = true)
-    private Object idutilisateurvalidateur;
+    private Long idutilisateurvalidateur;
     @Basic
     @Column(name = "IDPRODUIT", nullable = true)
-    private Object idproduit;
+    private Long idproduit;
     @Basic
     @Column(name = "IDREMISE", nullable = true)
-    private Object idremise;
+    private Long idremise;
     @Basic
     @Column(name = "TAUXCOMMISSION", nullable = true)
-    private Object tauxcommission;
+    private double tauxcommission;
     @Basic
     @Column(name = "MONTANTCOMMISSION", nullable = true)
-    private Object montantcommission;
+    private double montantcommission;
     @Basic
     @Column(name = "SYNCHRONE", nullable = true)
-    private Object synchrone;
+    private double synchrone;
     @Basic
     @Column(name = "DATESYNCHRONISATION", nullable = true)
-    private Object datesynchronisation;
+    private Calendar datesynchronisation;
     @Basic
     @Column(name = "MONTANTCOMMISION", nullable = true)
-    private Object montantcommision;
+    private double montantcommision;
     @Basic
     @Column(name = "NUMEROQUITTANCE_OLD", nullable = true)
-    private Object numeroquittanceOld;
+    private Long numeroquittanceOld;
     @Basic
     @Column(name = "DATEVALIDATION", nullable = true)
-    private Object datevalidation;
+    private Calendar datevalidation;
     @Basic
     @Column(name = "MONTANTTAXEPARAFISCALE", nullable = true)
-    private Object montanttaxeparafiscale;
+    private double montanttaxeparafiscale;
     @Basic
     @Column(name = "TAUXCOMMISSIONCATNAT", nullable = true)
-    private Object tauxcommissioncatnat;
+    private double tauxcommissioncatnat;
     @Basic
     @Column(name = "IDQUITTANCEORIGINE", nullable = true)
-    private Object idquittanceorigine;
+    private Long idquittanceorigine;
     @Basic
     @Column(name = "TYPEQUITTANCEPREVOYANCE", nullable = true)
-    private Object typequittanceprevoyance;
+    private String typequittanceprevoyance;
     @Basic
     @Column(name = "FORCEE", nullable = true)
-    private Object forcee;
+    private Long forcee;
 
 
 }

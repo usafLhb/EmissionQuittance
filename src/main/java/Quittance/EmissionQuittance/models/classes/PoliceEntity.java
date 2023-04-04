@@ -54,7 +54,7 @@ public class PoliceEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Ville_id")
-    private Ville ville;
+    private RefVilleEntity ville;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RefPolice_ID")

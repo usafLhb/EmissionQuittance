@@ -19,6 +19,6 @@ public class RefIntermediaireEntity {
     private Long id;
     private String libelle ;
 
-    @OneToMany(mappedBy = "ref_Commerciale")
+    @OneToMany(mappedBy = "refIntermediaire")
     private List<IntermediaireEntity> intermediaire;
 }
