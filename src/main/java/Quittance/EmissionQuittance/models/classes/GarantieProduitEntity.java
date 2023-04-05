@@ -16,4 +16,16 @@ public class GarantieProduitEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = true)
     private Long id;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "refGarantie")
+    private RefGarantieEntity refGarantie;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "prdProduit")
+    private PrdProduitEntity prdProduit;
+
+
+    private double tauxTaxeEve=0  ;
 }

@@ -33,5 +33,7 @@ public class HabMotdepasseEntity {
     @Column(name = "IDUTILISATEUR", nullable = true)
     private Long idutilisateur;
 
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "habUtilisateur")
+    private HabUtilisateurEntity habUtilisateur;
 }

@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "RefPolice" )
 public class RefPoliceEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "refpolice_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String libelle;
 

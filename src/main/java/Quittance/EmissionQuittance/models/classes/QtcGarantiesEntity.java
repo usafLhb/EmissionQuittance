@@ -57,4 +57,5 @@ public class QtcGarantiesEntity {
     private String categorieacaps;
 
 
+
 }

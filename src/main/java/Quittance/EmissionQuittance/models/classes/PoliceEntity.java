@@ -50,9 +50,6 @@ public class PoliceEntity {
     @JoinColumn(name = "quittance_id")
     private QtcQuittanceEntity quittance;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "VersionCommerciale_id")
-    private PrdVersioncommercialeEntity versioncommerciale;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Ville_id")
@@ -77,6 +74,11 @@ public class PoliceEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "intermediaire_id")
     private IntermediaireEntity intermediaire;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "habUtilisateur")
+    private HabUtilisateurEntity habUtilisateur;
+
 
 
 }

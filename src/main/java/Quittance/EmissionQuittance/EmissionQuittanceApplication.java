@@ -1,11 +1,15 @@
 package Quittance.EmissionQuittance;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.batch.BatchProperties;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @SpringBootApplication
 public class EmissionQuittanceApplication {
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmissionQuittanceApplication.class, args);

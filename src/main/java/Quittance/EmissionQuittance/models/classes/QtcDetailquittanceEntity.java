@@ -51,7 +51,13 @@ public class QtcDetailquittanceEntity {
 
 
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "qtcQuittance")
+    private QtcQuittanceEntity qtcQuittance;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "refGarantie")
+    private RefGarantieEntity refGarantie;
 
 
 }

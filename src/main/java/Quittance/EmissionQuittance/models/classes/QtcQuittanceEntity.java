@@ -155,6 +155,32 @@ public class QtcQuittanceEntity {
     private IntermediaireEntity intermediaire;
 
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "refQuittance")
+    private RefQuittanceEntity refQuittance;
 
+
+
+
+    @OneToMany(mappedBy = "qtcQuittance")
+    private List<QtcDetailquittanceEntity> qtcDetailquittance;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "qtcRemise")
+    private QtcRemiseEntity qtcRemise;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "habUtilisateur")
+    private HabUtilisateurEntity habUtilisateur;
+
+    /*Ajouter*/
+
+    @Basic
+    @Column(name = "EXERCICE", nullable = true)
+    private String exercice;
+
+    @Basic
+    @Column(name = "ordre", nullable = true)
+    private String ordre;
 
 }
