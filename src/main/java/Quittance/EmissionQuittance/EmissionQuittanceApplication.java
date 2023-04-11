@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.batch.BatchProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @SpringBootApplication
+
 public class EmissionQuittanceApplication {
 
 
@@ -16,5 +17,8 @@ public class EmissionQuittanceApplication {
 		System.out.println("Compiled !");
 
 	}
+/*	public Docket apis(){
+		return new Docket(DocumentationType.SWAGGER_12).select().apis(RequestHandlerSelectors.basePackage("com.demo")).build();
+	}*/
 
 }
