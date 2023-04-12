@@ -21,7 +21,7 @@ public class GarantieProduitEntity {
 
 
     @NotNull
-    private  String libele;
+    private  String libelle;
     @NotNull
     private  double taux_taxe_eve;
     @ManyToOne(fetch = FetchType.LAZY)
