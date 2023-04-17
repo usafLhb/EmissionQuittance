@@ -21,7 +21,6 @@ public class IntermediaireDTO {
 
     private QtcQuittanceDTO quittance;
 
-
     private List<PoliceDTO> polices;
 
 

@@ -3,7 +3,9 @@ package Quittance.EmissionQuittance.mapper;
 import Quittance.EmissionQuittance.dto.request.QtcDetailquittanceDTO;
 import Quittance.EmissionQuittance.models.classes.QtcDetailquittanceEntity;
 import org.mapstruct.*;
+import org.springframework.stereotype.Component;
 
+@Component
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface QtcDetailquittanceEntityMapper {
     QtcDetailquittanceEntity toEntity(QtcDetailquittanceDTO qtcDetailquittanceDTO);

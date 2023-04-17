@@ -4,9 +4,10 @@ import Quittance.EmissionQuittance.dto.request.HabMotdepasseDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
+import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
-
+@Component
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public class HabMotdepasseMapper
      //   implements Function<HabMotdepasseEntity, HabMotdepasseDTO>

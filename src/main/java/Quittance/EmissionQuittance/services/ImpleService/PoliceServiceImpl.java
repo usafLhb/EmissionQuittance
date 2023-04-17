@@ -11,8 +11,8 @@ import java.util.Set;
 @AllArgsConstructor
 @Service
 public class PoliceServiceImpl {
-  /*   private HabMotdepasseMapper habMotdepasseMapper;
-   @Override
+    // private HabMotdepasseMapper habMotdepasseMapper;
+ /*  @Override
     public void addPolice(PoliceEntity policeEntity) {
       //  policeRepository.save(policeEntity);
     }

@@ -3,7 +3,9 @@ package Quittance.EmissionQuittance.mapper;
 import Quittance.EmissionQuittance.dto.request.PeriodiciteDTO;
 import Quittance.EmissionQuittance.models.classes.PeriodiciteEntity;
 import org.mapstruct.*;
+import org.springframework.stereotype.Component;
 
+@Component
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface PeriodiciteEntityMapper {
     PeriodiciteEntity toEntity(PeriodiciteDTO periodiciteDTO);
