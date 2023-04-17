@@ -10,13 +10,9 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class RefIntermediaireDTO {
-
-    private String libelle ;
 
 
-    private List<IntermediaireEntity> intermediaire;
+public record RefIntermediaireDTO ( String libelle,List<IntermediaireEntity> intermediair) {
+
+ 
 }

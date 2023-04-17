@@ -1,11 +1,12 @@
 package Quittance.EmissionQuittance.models.classes;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Value;
+import org.jetbrains.annotations.NotNull;
 
 @Entity
 @Data
@@ -23,12 +24,10 @@ public class GarantieProduitEntity {
     @NotNull
     private  String libelle;
     @NotNull
-    private  double taux_taxe_eve;
+    private  double tauxTaxeEve=0;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "refGarantie")
     private RefGarantieEntity refGarantie;
-
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "prdProduit")
     private PrdProduitEntity prdProduit;
@@ -39,5 +38,5 @@ public class GarantieProduitEntity {
 
 
 
-    private double tauxTaxeEve=0  ;
+
 }
