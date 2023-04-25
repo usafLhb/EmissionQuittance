@@ -14,7 +14,7 @@ public class EmissionQuittanceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmissionQuittanceApplication.class, args);
-
+		System.out.println("Compiled");
 	}
 /*	public Docket apis(){
 		return new Docket(DocumentationType.SWAGGER_12).select().apis(RequestHandlerSelectors.basePackage("com.demo")).build();
