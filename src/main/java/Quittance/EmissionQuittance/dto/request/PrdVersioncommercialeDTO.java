@@ -1,6 +1,6 @@
 package Quittance.EmissionQuittance.dto.request;
 
-import Quittance.EmissionQuittance.models.classes.PrdVersioncommercialeEntity;
+import Quittance.EmissionQuittance.entities.PrdVersioncommercialeEntity;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -43,8 +43,6 @@ public class PrdVersioncommercialeDTO {
     private Object datemajproduit;
 
     private List<PrdVersioncommercialeEntity> prdVersioncommercialeEntities;
-
-
 
 
 }

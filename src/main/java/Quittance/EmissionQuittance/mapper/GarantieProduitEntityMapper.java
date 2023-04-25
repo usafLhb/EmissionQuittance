@@ -1,7 +1,7 @@
 package Quittance.EmissionQuittance.mapper;
 
 import Quittance.EmissionQuittance.dto.request.GarantieProduitDTO;
-import Quittance.EmissionQuittance.models.classes.GarantieProduitEntity;
+import Quittance.EmissionQuittance.entities.GarantieProduitEntity;
 import org.mapstruct.*;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)

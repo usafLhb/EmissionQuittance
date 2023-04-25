@@ -1,6 +1,6 @@
 package Quittance.EmissionQuittance.dto.request;
 
-import Quittance.EmissionQuittance.models.classes.RefIntermediaireEntity;
+import Quittance.EmissionQuittance.entities.RefIntermediaireEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

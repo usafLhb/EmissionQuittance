@@ -1,8 +1,8 @@
 package Quittance.EmissionQuittance.dto.request;
 
-import Quittance.EmissionQuittance.models.classes.PoliceEntity;
-import Quittance.EmissionQuittance.models.classes.PrdProduitEntity;
-import Quittance.EmissionQuittance.models.classes.RefGarantieEntity;
+import Quittance.EmissionQuittance.entities.PoliceEntity;
+import Quittance.EmissionQuittance.entities.PrdProduitEntity;
+import Quittance.EmissionQuittance.entities.RefGarantieEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;

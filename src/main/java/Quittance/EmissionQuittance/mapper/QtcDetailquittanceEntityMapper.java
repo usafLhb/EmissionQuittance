@@ -1,7 +1,7 @@
 package Quittance.EmissionQuittance.mapper;
 
 import Quittance.EmissionQuittance.dto.request.QtcDetailquittanceDTO;
-import Quittance.EmissionQuittance.models.classes.QtcDetailquittanceEntity;
+import Quittance.EmissionQuittance.entities.QtcDetailquittanceEntity;
 import org.mapstruct.*;
 import org.springframework.stereotype.Component;
 

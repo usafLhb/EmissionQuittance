@@ -1,7 +1,7 @@
 package Quittance.EmissionQuittance.mapper;
 
 import Quittance.EmissionQuittance.dto.request.IntermediaireDTO;
-import Quittance.EmissionQuittance.models.classes.IntermediaireEntity;
+import Quittance.EmissionQuittance.entities.IntermediaireEntity;
 import org.mapstruct.*;
 import org.springframework.stereotype.Component;
 

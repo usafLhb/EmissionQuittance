@@ -1,6 +1,6 @@
 package Quittance.EmissionQuittance.dto.request;
 
-import Quittance.EmissionQuittance.models.classes.*;
+import Quittance.EmissionQuittance.entities.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +25,6 @@ public class PoliceDTO {
     private String adresse ;
     @NotNull
     private Calendar dateEffet;
-
     private Calendar dateEcheance;
     @NotNull
     private Double primeNette;
@@ -34,16 +33,12 @@ public class PoliceDTO {
     private Double tauxComm ;
     private Calendar dateTerme ;
     private  Calendar dateEtat;
-    private Double nbrtete ;
     private Double revenueAnnuel ;
-    private Double dureeS ;
     private Double ff ;
     private Double mnt_taxe_eve ;
     private Double mnt_taxe_parafiscale ;
 
-
     private List<QtcQuittanceEntity> quittances;
-
 
     private PrdVersioncommercialeEntity versioncommerciale;
 
@@ -59,7 +54,7 @@ public class PoliceDTO {
     private PeriodiciteEntity periodicite;
 
 
-   /* private Prd_VersionCommerciale prd_versionCommerciale;*/
+    private PrdVersioncommercialeEntity versionCommerciale;
 
 
 

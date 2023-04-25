@@ -1,8 +1,7 @@
 package Quittance.EmissionQuittance.dto.request;
 
 
-import Quittance.EmissionQuittance.models.classes.IntermediaireEntity;
-import jakarta.persistence.*;
+import Quittance.EmissionQuittance.entities.IntermediaireEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

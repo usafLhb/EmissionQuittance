@@ -1,7 +1,7 @@
 package Quittance.EmissionQuittance.mapper;
 
 import Quittance.EmissionQuittance.dto.request.PeriodiciteDTO;
-import Quittance.EmissionQuittance.models.classes.PeriodiciteEntity;
+import Quittance.EmissionQuittance.entities.PeriodiciteEntity;
 import org.mapstruct.*;
 import org.springframework.stereotype.Component;
 
