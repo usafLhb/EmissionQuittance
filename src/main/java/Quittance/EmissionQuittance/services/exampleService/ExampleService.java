@@ -1,4 +1,4 @@
-package Quittance.EmissionQuittance.services.ImpleService;
+package Quittance.EmissionQuittance.services.exampleService;
 
 import Quittance.EmissionQuittance.dto.request.GarantieProduitDTO;
 import Quittance.EmissionQuittance.entities.GarantieProduitEntity;

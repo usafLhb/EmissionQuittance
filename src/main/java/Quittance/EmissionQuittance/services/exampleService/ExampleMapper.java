@@ -1,9 +1,8 @@
-package Quittance.EmissionQuittance.services.ImpleService;
+package Quittance.EmissionQuittance.services.exampleService;
 
 import Quittance.EmissionQuittance.dto.request.GarantieProduitDTO;
 import Quittance.EmissionQuittance.entities.GarantieProduitEntity;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
