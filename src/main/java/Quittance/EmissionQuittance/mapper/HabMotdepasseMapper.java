@@ -1,6 +1,7 @@
 package Quittance.EmissionQuittance.mapper;
 
 import Quittance.EmissionQuittance.dto.request.HabMotdepasseDTO;
+import Quittance.EmissionQuittance.models.classes.HabMotdepasseEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
@@ -14,7 +15,7 @@ public class HabMotdepasseMapper
 {
 
 
- /*   @Override
+
     public HabMotdepasseDTO apply(HabMotdepasseEntity habMotdepasseEntity) {
         return null;
     }
@@ -23,5 +24,5 @@ public class HabMotdepasseMapper
     }
     HabMotdepasseDTO toDto(HabMotdepasseEntity habMotdepasseEntity) {
         return null;
-    }*/
+    }
 }
