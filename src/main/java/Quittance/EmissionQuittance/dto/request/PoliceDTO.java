@@ -14,8 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PoliceDTO {
-
-
     private String codePolice;
     @NotNull
     private Long numClient ;
@@ -39,19 +37,12 @@ public class PoliceDTO {
     private List<QtcQuittanceEntity> quittances;
 
     private PrdVersioncommercialeEntity versioncommerciale;
-
     private RefVilleEntity ville;
-
-
     private RefPoliceEntity refPolice;
-
-
     private TermeEntity terme;
 
 
     private PeriodiciteEntity periodicite;
-
-
     private PrdVersioncommercialeEntity versionCommerciale;
 
 
