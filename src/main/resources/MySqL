@@ -1,4 +1,3 @@
-
 spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/quittance?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=true&useUnicode=yes&useLegacyDatetimeCode=false&serverTimezone=UTC
 spring.datasource.username=root

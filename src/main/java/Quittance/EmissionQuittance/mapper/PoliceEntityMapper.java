@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface PoliceEntityMapper {
 
-    @Mapping(source = "codePolice", target = "codePolice")
+    //@Mapping(source = "codePolice", target = "codePolice")
     PoliceEntity toEntity(PoliceDTO policeDTO);
-    @Mapping(source = "codePolice", target = "codePolice")
+    //@Mapping(source = "codePolice", target = "codePolice")
     PoliceDTO toDto(PoliceEntity policeEntity);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
