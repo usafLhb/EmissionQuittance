@@ -19,7 +19,7 @@ public class PoliceEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
-    private Long codePolice;
+    private String codePolice;
     @NotNull
     private Long numClient ;
     @NotNull

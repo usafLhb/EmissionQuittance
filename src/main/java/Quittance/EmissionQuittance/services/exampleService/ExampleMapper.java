@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 public interface  ExampleMapper {
     ExampleMapper INSTANCE = Mappers.getMapper( ExampleMapper.class );
 
-    //@Mapping(target = "id", source = "entity.id")
+    Mapping(target = "id", source = "entity.id")
     GarantieProduitDTO toDTO(GarantieProduitEntity entity);
 
   //  @Mapping(target = "id", ignore = true)

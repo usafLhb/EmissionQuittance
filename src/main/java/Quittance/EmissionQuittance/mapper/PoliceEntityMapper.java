@@ -5,9 +5,8 @@ import Quittance.EmissionQuittance.entities.PoliceEntity;
 import org.mapstruct.*;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
-@Component
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface PoliceEntityMapper {
 
     PoliceEntity toEntity(PoliceDTO policeDTO);

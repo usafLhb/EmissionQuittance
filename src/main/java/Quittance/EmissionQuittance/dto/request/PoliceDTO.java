@@ -25,7 +25,6 @@ public class PoliceDTO {
     private String adresse ;
     @NotNull
     private Calendar dateEffet;
-    private Calendar dateEcheance;
     @NotNull
     private Double primeNette;
     private Double taxe ;
@@ -33,7 +32,6 @@ public class PoliceDTO {
     private Double tauxComm ;
     private Calendar dateTerme ;
     private  Calendar dateEtat;
-    private Double revenueAnnuel ;
     private Double ff ;
     private Double mnt_taxe_eve ;
     private Double mnt_taxe_parafiscale ;

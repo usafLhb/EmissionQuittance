@@ -11,8 +11,6 @@ import Quittance.EmissionQuittance.mapper.PrdVersionCommercialeMapper;
 import Quittance.EmissionQuittance.repositories.PoliceEntityRepository;
 import Quittance.EmissionQuittance.services.Iservice.IPoliceService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.mapstruct.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
@@ -23,33 +21,19 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
-
-
-@RequiredArgsConstructor
 @Service
 public class PoliceServiceImpl implements IPoliceService {
-    private PoliceEntityRepository policeRepository;
 
+    private final PoliceEntityRepository policeRepository;
+    private final PoliceEntityMapper policeEntityMapper;
 
-
-  //  private PoliceEntityMapper policeEntityMapper;
-    @Override
-    public PoliceDTO addPolice(PoliceDTO policeDTO) {
-        return null;
+    @Autowired
+    public PoliceServiceImpl(PoliceEntityRepository policeRepository, PoliceEntityMapper policeEntityMapper) {
+        this.policeRepository = policeRepository;
+        this.policeEntityMapper = policeEntityMapper;
     }
 
     @Override
-    public PoliceDTO updatePolice(Long policeId, PoliceDTO policeDTO) {
-        return null;
-    }
-
-    @Override
-    public List<PoliceDTO> getAllPolices() {
-        return null;
-    }
-    //   private PoliceEntityMapper policeEntityMapper;
-   /* @Override
     public PoliceDTO addPolice(PoliceDTO policeDTO) {
        PoliceEntity police = policeEntityMapper.toEntity(policeDTO);
        PoliceEntity savedPolice = policeRepository.save(police);
@@ -70,7 +54,7 @@ public class PoliceServiceImpl implements IPoliceService {
         return polices.stream()
                 .map(policeEntityMapper::toDto)
                 .collect(Collectors.toList());
-    }*/
+    }
 
 /*    @Override
     public List<PoliceDTO> getPolicesByNumClient(Long numClient) {
@@ -123,7 +107,7 @@ public class PoliceServiceImpl implements IPoliceService {
         return null;
     }*/
 
-/*    public List<PoliceDTO> getPoliceByCriteres(PoliceSearchCriteriaDTO policeSearchCriteriaDTO){
+    public List<PoliceDTO> getPoliceByCriteres(PoliceSearchCriteriaDTO policeSearchCriteriaDTO){
         Specification<PoliceEntity> policeSpecification = Specification.where(null);
         if (policeSearchCriteriaDTO.getNumClient() != null) {
             policeSpecification = policeSpecification.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("numClient"), policeSearchCriteriaDTO.getNumClient()));
@@ -141,7 +125,7 @@ public class PoliceServiceImpl implements IPoliceService {
         return policeRepository.findAll(policeSpecification).stream()
                 .map(policeEntityMapper::toDto)
                 .collect(Collectors.toList());
-    }*/
+    }
 
 
 }
