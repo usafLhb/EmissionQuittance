@@ -11,7 +11,7 @@ import java.util.List;
 
 
 
-public record RefIntermediaireDTO ( String libelle,List<IntermediaireEntity> intermediair) {
-
+public class RefIntermediaireDTO  {
+    String libelle;List<IntermediaireEntity> intermediair;
  
 }
