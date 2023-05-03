@@ -14,7 +14,7 @@ public class QtcQuittanceEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
-    @Basic
+
     @Column(name = "CODESOCIETE", nullable = true)
     private int codesociete;
     @Basic

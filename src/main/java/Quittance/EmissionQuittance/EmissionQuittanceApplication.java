@@ -14,11 +14,6 @@ public class EmissionQuittanceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmissionQuittanceApplication.class, args);
-
-		eai.devass.referentiel.services.pub.ws.SearchRemises earchRemises = new eai.devass.referentiel.services.pub.ws.SearchRemises();
-
-			System.out.println(earchRemises.getEntiteVO());
-
 		System.out.println("Compiled");
 	}
 /*	public Docket apis(){
