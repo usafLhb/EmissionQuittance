@@ -1,22 +1,17 @@
 package Quittance.EmissionQuittance.dto.request;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class RefVilleDTO {
-
-    @Basic
-    private Object code;
-    @Basic
-    private Object libelle;
-    @Basic
-    private Object idpays;
-    @Basic
-    private Object zoneSismique;
-    @Basic
-    private Object zoneInnondation;
-
+    private Long id;
+    private Long code;
+    private String libelle;
 
 }

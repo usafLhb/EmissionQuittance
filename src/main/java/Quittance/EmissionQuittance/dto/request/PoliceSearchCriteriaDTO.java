@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PoliceSearchCriteriaDTO {
-    public Long NumClient;
-    public String CodePolice;
-    public PrdVersioncommercialeDTO VersionCommerciale;
-    public RefVilleDTO Ville;
+    public Long numClient;
+    public String codePolice;
+    public PrdVersioncommercialeDTO prdVersioncommerciale;
+    public RefVilleDTO refVille;
 }

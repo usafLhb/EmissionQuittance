@@ -2,6 +2,8 @@ package Quittance.EmissionQuittance.services.ImpleService;
 
 import Quittance.EmissionQuittance.dto.request.PoliceDTO;
 import Quittance.EmissionQuittance.dto.request.PoliceSearchCriteriaDTO;
+import Quittance.EmissionQuittance.dto.request.PrdVersioncommercialeDTO;
+import Quittance.EmissionQuittance.dto.request.RefVilleDTO;
 import Quittance.EmissionQuittance.entities.PoliceEntity;
 import Quittance.EmissionQuittance.mapper.PoliceEntityMapper;
 import Quittance.EmissionQuittance.repositories.PoliceEntityRepository;
@@ -47,6 +49,7 @@ public class PoliceServiceImpl implements IPoliceService {
                 .map(policeEntityMapper::toDto)
                 .collect(Collectors.toList());
     }
+    /*@Override
     public List<PoliceDTO> getPoliceByCriteres(PoliceSearchCriteriaDTO policeSearchCriteriaDTO){
         Specification<PoliceEntity> policeSpecification = Specification.where(null);
         if (policeSearchCriteriaDTO.getNumClient() != null) {
@@ -55,17 +58,44 @@ public class PoliceServiceImpl implements IPoliceService {
         if (policeSearchCriteriaDTO.getCodePolice() != null) {
             policeSpecification = policeSpecification.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("codePolice"), policeSearchCriteriaDTO.getCodePolice()));
         }
-        if (policeSearchCriteriaDTO.getVersionCommerciale() != null) {
-            policeSpecification = policeSpecification.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("versionCommerciale").get("nomCommercial"), policeSearchCriteriaDTO.getVersionCommerciale().getNomcommercial()));
+        if (policeSearchCriteriaDTO.getPrdVersioncommerciale() != null) {
+            policeSpecification = policeSpecification.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.join("prdVersioncommerciale").get("nomcommercial"), policeSearchCriteriaDTO.getPrdVersioncommerciale().getNomcommercial()));
         }
-        if(policeSearchCriteriaDTO.getVille() != null){
-            policeSpecification = policeSpecification.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("ville").get("libelle"), policeSearchCriteriaDTO.getVille().getLibelle()));
+        if(policeSearchCriteriaDTO.getRefVille() != null){
+            policeSpecification = policeSpecification.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.join("refVille").get("libelle"), policeSearchCriteriaDTO.getRefVille().getLibelle()));
         }
 
         return policeRepository.findAll(policeSpecification).stream()
                 .map(policeEntityMapper::toDto)
                 .collect(Collectors.toList());
+    }*/
+    @Override
+    public List<PoliceDTO> getPoliceByCriteres(PoliceSearchCriteriaDTO policeSearchCriteriaDTO) {
+        Specification<PoliceEntity> policeSpecification = Specification.where(null);
+        if (policeSearchCriteriaDTO.getNumClient() != null) {
+            policeSpecification = policeSpecification.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("numClient"), policeSearchCriteriaDTO.getNumClient()));
+        }
+        if (policeSearchCriteriaDTO.getCodePolice() != null) {
+            policeSpecification = policeSpecification.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("codePolice"), policeSearchCriteriaDTO.getCodePolice()));
+        }
+        if (policeSearchCriteriaDTO.getPrdVersioncommerciale() != null) {
+            PrdVersioncommercialeDTO prdVersionCommercialeDTO = policeSearchCriteriaDTO.getPrdVersioncommerciale();
+            if (prdVersionCommercialeDTO.getNomcommercial() != null) {
+                policeSpecification = policeSpecification.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.join("prdVersioncommerciale").get("nomcommercial"), prdVersionCommercialeDTO.getNomcommercial()));
+            }
+        }
+        if (policeSearchCriteriaDTO.getRefVille() != null) {
+            RefVilleDTO refVilleDTO = policeSearchCriteriaDTO.getRefVille();
+            if (refVilleDTO.getLibelle() != null) {
+                policeSpecification = policeSpecification.and((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.join("refVille").get("libelle"), policeSearchCriteriaDTO.getRefVille().getLibelle()));
+            }
+            }
+
+        return policeRepository.findAll(policeSpecification).stream()
+                .map(policeEntityMapper::toDto)
+                .collect(Collectors.toList());
     }
+
 
 
 }

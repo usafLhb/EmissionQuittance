@@ -12,11 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RefPoliceDTO {
-
-
-
+    private Long id;
     private String libelle;
-
-
-    private List<PoliceEntity> polices;
 }

@@ -3,6 +3,8 @@ package Quittance.EmissionQuittance.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "REF_VILLE" )
@@ -26,6 +28,9 @@ public class RefVilleEntity {
     @Basic
     @Column(name = "ZONE_INNONDATION", nullable = true)
     private Long zoneInnondation;
+
+    @OneToMany(mappedBy = "refVille")
+    private List<PoliceEntity> polices;
 
 
 }

@@ -14,7 +14,5 @@ import java.util.List;
 public class PeriodiciteDTO {
 
     private String type_periodicite;
-
-
-    private List<PoliceEntity> polices;
+    private List<PoliceDTO> polices;
 }

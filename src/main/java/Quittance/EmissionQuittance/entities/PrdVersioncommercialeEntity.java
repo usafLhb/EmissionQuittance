@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Calendar;
+import java.util.List;
 
 @Entity
 @Data
@@ -59,7 +60,10 @@ public class PrdVersioncommercialeEntity {
     @Column(name = "DATEMAJPRODUIT", nullable = true)
     private Calendar datemajproduit;
 
-   @ManyToOne(fetch = FetchType.LAZY)
-   @JoinColumn(name = "intermediaire", referencedColumnName = "ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "intermediaire", referencedColumnName = "ID")
     private IntermediaireEntity intermediaire;
+
+    @OneToMany(mappedBy = "prdVersioncommerciale", fetch = FetchType.LAZY)
+    private List<PoliceEntity> polices;
 }
