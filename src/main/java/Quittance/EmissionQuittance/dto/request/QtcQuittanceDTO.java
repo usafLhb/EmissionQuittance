@@ -3,6 +3,7 @@ package Quittance.EmissionQuittance.dto.request;
 import Quittance.EmissionQuittance.entities.*;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
 import java.util.List;
@@ -79,6 +80,7 @@ public class QtcQuittanceDTO {
 
     private Long idproduit;
 
+
     private Long idremise;
 
     private double tauxcommission;
@@ -101,38 +103,26 @@ public class QtcQuittanceDTO {
     private Long idquittanceorigine;
 
     private String typequittanceprevoyance;
-
-
     private Long forcee;
-
-
- /*   private IntermediaireEntity intermediaire;
-
-
-
-    private RefQuittanceEntity refQuittance;
-
-
-
-
-
-    private List<QtcDetailquittanceEntity> qtcDetailquittance;
-*/
-
-    private QtcRemiseEntity qtcRemise;
-
-
-    private HabUtilisateurEntity habUtilisateur;
-
-    /*Ajouter*/
-
-    @Basic
-    @Column(name = "EXERCICE", nullable = true)
     private String exercice;
-
-    @Basic
-    @Column(name = "ordre", nullable = true)
     private String ordre;
+    private Long codeIntermediaire;
+
+    private Long intermediaireid;
+    private Long refQuittanceid;
+    // private RefQuittanceEntity refQuittance;
+    private Long qtcRemiseid;
+    //private QtcRemiseEntity qtcRemise;
+    private Long habUtilisateurid;
+    //private HabUtilisateurEntity habUtilisateur;
+
+    //private List<QtcDetailquittanceEntity> qtcDetailquittance;
+
+
+    private Long  policeid;
+    private Calendar dateEcheance;
+    private Calendar dateTerme;
+
 
 
 }

@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -26,20 +27,6 @@ public class QtcQuittanceController {
     private testSer t;
 
 
-    @GetMapping("/222")
-    @Operation(summary = "testttt")
-    public String getAll22() {
-        System.out.println("getAllQuittance2");
-        return t.getAllQuittance22();
-    }
-
-    @GetMapping("/22")
-    @Operation(summary = "testttt 2")
-    public List<QtcQuittanceEntity> getAll222() {
-        System.out.println("getAllQuittance2");
-        return t.getAllQuittance2();
-    }
-
 
 
 
@@ -48,17 +35,19 @@ public class QtcQuittanceController {
 
     @PostMapping("/")
     public QtcQuittanceDTO create(@RequestBody QtcQuittanceDTO quittanceDTO) {
+        System.out.println(quittanceDTO);
         return quittanceService.save(quittanceDTO);
     }
 
     @GetMapping("/")
+    @Operation(summary = "getAllQuittances")
     public List<QtcQuittanceDTO> getAll() {
         return quittanceService.getAllQuittance();
     }
-    @GetMapping("/2")
-    public List<QtcQuittanceEntity> getAll2() {
-        System.out.println("getAllQuittance2");
-        return quittanceService.getAllQuittance2();
+
+    @GetMapping("/{id}")
+    public boolean getQuittanceById(@PathVariable Long id) {
+        return quittanceService.getQuittanceByPoliceId(id);
     }
 
     @PutMapping("/")
@@ -67,17 +56,22 @@ public class QtcQuittanceController {
     }
 
     @GetMapping("/ref/{refQuittance}")
-    public List<QtcQuittanceDTO> getByRefQuittance(@PathVariable String refQuittance) {
+    public List<QtcQuittanceDTO> getByRefQuittance(@PathVariable Long refQuittance) {
+        return quittanceService.getByRefQuittanceEntity(refQuittance);
+    }
+    @GetMapping("/ref2")
+    public List<QtcQuittanceDTO> getByRefQuittance2(@RequestParam Long refQuittance) {
         return quittanceService.getByRefQuittanceEntity(refQuittance);
     }
 
     @GetMapping("/date")
-    public List<QtcQuittanceDTO> searchByDate(@RequestParam("dateDebut") Date dateDebut, @RequestParam("dateFin") Date dateFin) {
-        return quittanceService.searchByDateBetween(dateDebut, dateFin);
+    public List<QtcQuittanceDTO> searchByDate(@RequestParam("dateDebut") Calendar dateDebut, @RequestParam("dateFin") Calendar dateFin) {
+        System.out.println(dateFin +" "+dateDebut);
+        return null;
     }
 
     @GetMapping("/codepolice/{codePolice}")
-    public List<QtcQuittanceDTO> searchByCodePolice(@PathVariable String codePolice) {
+    public List<QtcQuittanceDTO> searchByCodePolice(@PathVariable Long codePolice) {
         return quittanceService.searchByCodePolice(codePolice);
     }
 }

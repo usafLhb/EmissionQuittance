@@ -10,8 +10,9 @@ public interface IQuittanceService {
 
     QtcQuittanceDTO save(QtcQuittanceDTO quittanceDTO);
     List<QtcQuittanceDTO> getAllQuittance();
+    boolean getQuittanceById(Long id);
     QtcQuittanceDTO update(QtcQuittanceDTO quittanceDTO);
-    List<QtcQuittanceDTO> getByRefQuittanceEntity(String refQuittanceEntity);
+    public List<QtcQuittanceDTO> getByRefQuittanceEntity(Long refQuittanceid);
     List<QtcQuittanceDTO> searchByDateBetween(Date dateDebut, Date dateFin);
-    List<QtcQuittanceDTO> searchByCodePolice(String codePolice);
+    public List<QtcQuittanceDTO> searchByCodePolice(Long codePolice);
 }

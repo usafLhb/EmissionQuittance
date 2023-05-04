@@ -1,7 +1,9 @@
 package Quittance.EmissionQuittance.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
 import java.util.List;
@@ -15,25 +17,25 @@ public class QtcQuittanceEntity {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "CODESOCIETE", nullable = true)
+    @Column(name = "CODESOCIETE")
     private int codesociete;
     @Basic
-    @Column(name = "NATUREQUITTANCE", nullable = true)
+    @Column(name = "NATUREQUITTANCE")
     private String naturequittance;
     @Basic
-    @Column(name = "NUMEROQUITTANCE", nullable = true)
+    @Column(name = "NUMEROQUITTANCE")
     private String numeroquittance;
     @Basic
-    @Column(name = "CODEPOLICE", nullable = true)
+    @Column(name = "CODEPOLICE")
     private String codepolice;
     @Basic
-    @Column(name = "NUMEROQUITTANCEORIGINE", nullable = true)
+    @Column(name = "NUMEROQUITTANCEORIGINE")
     private String numeroquittanceorigine;
     @Basic
-    @Column(name = "CODECLIENT", nullable = true)
+    @Column(name = "CODECLIENT" )
     private String codeclient;
     @Basic
-    @Column(name = "CODEINTERMEDIAIRE", nullable = true)
+    @Column(name = "CODEINTERMEDIAIRE" )
     private Long codeintermediaire;
     @Basic
     @Column(name = "CODEBRANCHE", nullable = true)
@@ -53,7 +55,7 @@ public class QtcQuittanceEntity {
     @Basic
     @Column(name = "TYPEQUITTANCE", nullable = true)
     private String typequittance;
-    @Basic
+    @Positive
     @Column(name = "PRIMENETTE", nullable = true)
     private double primenette;
     @Basic
@@ -154,7 +156,6 @@ public class QtcQuittanceEntity {
     @JoinColumn(name = "Intermediaire_ID")
     private IntermediaireEntity intermediaire;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "refQuittance")
     private RefQuittanceEntity refQuittance;
@@ -175,12 +176,14 @@ public class QtcQuittanceEntity {
 
     /*Ajouter*/
 
-    @Basic
-    @Column(name = "EXERCICE", nullable = true)
-    private String exercice;
 
-    @Basic
-    @Column(name = "ordre", nullable = true)
+    private String exercice;
     private String ordre;
+    private Calendar dateEcheance;
+    private Calendar dateTerme;
+
+    @ManyToOne
+    @JoinColumn(name = "police_id")
+    private PoliceEntity police;
 
 }
