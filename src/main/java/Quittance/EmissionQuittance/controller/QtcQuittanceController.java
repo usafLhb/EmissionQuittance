@@ -77,4 +77,16 @@ public class QtcQuittanceController {
     public List<QtcQuittanceDTO> searchByCodePolice(@PathVariable Long codePolice) {
         return quittanceService.searchByCodePolice(codePolice);
     }
+
+    @GetMapping("/search")
+    public List<QtcQuittanceDTO> searchQuittances(
+            @RequestParam(name = "refQuittanceid", required = false) Long refQuittanceid,
+            @RequestParam(name = "dateDebut", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Calendar dateDebut,
+            @RequestParam(name = "dateFin", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Calendar dateFin,
+            @RequestParam(name = "codePolice", required = false) Long codePolice) {
+        return quittanceService.searchQuittances(refQuittanceid, dateDebut, dateFin, codePolice);
+    }
+
+
+
 }

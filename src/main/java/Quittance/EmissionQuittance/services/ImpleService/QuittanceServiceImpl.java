@@ -33,6 +33,7 @@ public class QuittanceServiceImpl implements IQuittanceService {
     private final PoliceEntityRepository policeEntityRepository;
     private final DateUtils dateUtils;
     private final ValidationUtils validationUtils;
+    private final QtcQuittanceEntityRepository qtcQuittanceRepository;
 
 
 
@@ -113,7 +114,9 @@ public class QuittanceServiceImpl implements IQuittanceService {
 
     @Override
     public QtcQuittanceDTO update(QtcQuittanceDTO quittanceDTO) {
+
         QtcQuittanceEntity quittanceEntity = quittanceMapper.toEntity(quittanceDTO);
+      //  QtcQuittanceEntity quittance=qtcQuittanceRepository.findById(quittanceEntity.getQuittanceid()).orElseThrow();
         quittanceEntity = quittanceRepository.save(quittanceEntity);
         return quittanceMapper.toDto(quittanceEntity);
     }
@@ -138,4 +141,25 @@ public class QuittanceServiceImpl implements IQuittanceService {
         List<QtcQuittanceEntity> quittanceEntities = quittanceRepository.findAllByPolice(police);
         return quittanceMapper.toQuittanceDTOList(quittanceEntities);
     }
+    @Override
+    public List<QtcQuittanceDTO> searchQuittances(Long refQuittanceid, Calendar dateDebut, Calendar dateFin, Long codePolice) {
+        RefQuittanceEntity refQuittance = null;
+        PoliceEntity police = null;
+        List<QtcQuittanceEntity> quittanceEntities = null;
+
+        if (refQuittanceid != null) {
+            refQuittance = refQuittanceRepository.findById(refQuittanceid).orElseThrow();
+            quittanceEntities = quittanceRepository.findByRefQuittance(refQuittance);
+        } else if (dateDebut != null && dateFin != null) {
+            quittanceEntities = quittanceRepository.findAllByDatefinBetween(dateDebut, dateFin);
+        } else if (codePolice != null) {
+            police = policeEntityRepository.findById(codePolice).orElseThrow();
+            quittanceEntities = quittanceRepository.findAllByPolice(police);
+        } else {
+            throw new IllegalArgumentException("At least one parameter must be non-null.");
+        }
+
+        return quittanceMapper.toQuittanceDTOList(quittanceEntities);
+    }
+
 }
