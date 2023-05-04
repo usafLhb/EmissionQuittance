@@ -11,11 +11,14 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/quittances")
@@ -65,9 +68,9 @@ public class QtcQuittanceController {
     }
 
     @GetMapping("/date")
-    public List<QtcQuittanceDTO> searchByDate(@RequestParam("dateDebut") Calendar dateDebut, @RequestParam("dateFin") Calendar dateFin) {
+    public List<QtcQuittanceDTO> searchByDate(@RequestParam("dateDebut") @DateTimeFormat(pattern = "yyyy-MM-dd") Calendar dateDebut, @RequestParam("dateFin")  @DateTimeFormat(pattern =  "yyyy-MM-dd") Calendar dateFin) {
         System.out.println(dateFin +" "+dateDebut);
-        return null;
+        return quittanceService.searchByDateBetween(dateDebut,dateFin);
     }
 
     @GetMapping("/codepolice/{codePolice}")

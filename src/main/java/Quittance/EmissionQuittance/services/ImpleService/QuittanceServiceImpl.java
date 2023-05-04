@@ -14,6 +14,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -125,7 +126,7 @@ public class QuittanceServiceImpl implements IQuittanceService {
     }
 
     @Override
-    public List<QtcQuittanceDTO> searchByDateBetween(Date dateDebut, Date dateFin) {
+    public List<QtcQuittanceDTO> searchByDateBetween(Calendar dateDebut, Calendar dateFin) {
         List<QtcQuittanceEntity> quittanceEntities = quittanceRepository.findAllByDatefinBetween(dateDebut, dateFin);
         return quittanceMapper.toQuittanceDTOList(quittanceEntities);
     }
