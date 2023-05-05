@@ -11,7 +11,9 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -41,23 +43,22 @@ public class QtcQuittanceController {
         System.out.println(quittanceDTO);
         return quittanceService.save(quittanceDTO);
     }
-
     @GetMapping("/")
     @Operation(summary = "getAllQuittances")
-    public List<QtcQuittanceDTO> getAll() {
-        return quittanceService.getAllQuittance();
+    public ResponseEntity<Page<QtcQuittanceDTO>> getAllQuittance(
+            @RequestParam(defaultValue = "0") int pageNumber,
+            @RequestParam(defaultValue = "3") int pageSize) {
+        Page<QtcQuittanceDTO> quittancePage = quittanceService.getAllQuittance(pageNumber, pageSize);
+        return ResponseEntity.ok(quittancePage);
     }
-
     @GetMapping("/{id}")
     public boolean getQuittanceById(@PathVariable Long id) {
         return quittanceService.getQuittanceByPoliceId(id);
     }
-
     @PutMapping("/")
     public QtcQuittanceDTO update(@RequestBody QtcQuittanceDTO quittanceDTO) {
         return quittanceService.update(quittanceDTO);
     }
-
     @GetMapping("/ref/{refQuittance}")
     public List<QtcQuittanceDTO> getByRefQuittance(@PathVariable Long refQuittance) {
         return quittanceService.getByRefQuittanceEntity(refQuittance);
@@ -78,13 +79,20 @@ public class QtcQuittanceController {
         return quittanceService.searchByCodePolice(codePolice);
     }
 
+
+
     @GetMapping("/search")
-    public List<QtcQuittanceDTO> searchQuittances(
-            @RequestParam(name = "refQuittanceid", required = false) Long refQuittanceid,
-            @RequestParam(name = "dateDebut", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Calendar dateDebut,
-            @RequestParam(name = "dateFin", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Calendar dateFin,
-            @RequestParam(name = "codePolice", required = false) Long codePolice) {
-        return quittanceService.searchQuittances(refQuittanceid, dateDebut, dateFin, codePolice);
+    public ResponseEntity<Page<QtcQuittanceDTO>> searchQuittances(
+            @RequestParam(required = false) Long refQuittanceid,
+            @RequestParam(required = false) @DateTimeFormat(pattern="yyyy-MM-dd") Calendar dateDebut,
+            @RequestParam(required = false) @DateTimeFormat(pattern="yyyy-MM-dd") Calendar dateFin,
+            @RequestParam(required = false) Long codePolice,
+            @RequestParam(defaultValue = "0") int pageNumber,
+            @RequestParam(defaultValue = "10") int pageSize) {
+
+        Page<QtcQuittanceDTO> quittanceDTOs = quittanceService.searchQuittances(refQuittanceid, dateDebut, dateFin, codePolice, pageNumber, pageSize);
+
+        return ResponseEntity.ok(quittanceDTOs);
     }
 
 

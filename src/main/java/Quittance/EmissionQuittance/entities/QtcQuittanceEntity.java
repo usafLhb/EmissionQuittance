@@ -49,9 +49,7 @@ public class QtcQuittanceEntity {
     @Basic
     @Column(name = "ADRESSECLIENT", nullable = true)
     private String adresseclient;
-    @Basic
-    @Column(name = "VILLECLIENT", nullable = true)
-    private String villeclient;
+
     @Basic
     @Column(name = "TYPEQUITTANCE", nullable = true)
     private String typequittance;
@@ -175,7 +173,10 @@ public class QtcQuittanceEntity {
     private HabUtilisateurEntity habUtilisateur;
 
     /*Ajouter*/
-
+   // @Column(name = "VILLECLIENT")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "VILLECLIENT")
+    private RefVilleEntity ville;
 
     private String exercice;
     private String ordre;

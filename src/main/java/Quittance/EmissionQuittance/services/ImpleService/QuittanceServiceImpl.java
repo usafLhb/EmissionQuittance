@@ -9,9 +9,14 @@ import Quittance.EmissionQuittance.repositories.*;
 import Quittance.EmissionQuittance.services.Iservice.IPoliceService;
 import Quittance.EmissionQuittance.services.Iservice.IQuittanceService;
 import Quittance.EmissionQuittance.utils.DateUtils;
+import Quittance.EmissionQuittance.utils.SearchUtils;
 import Quittance.EmissionQuittance.utils.ValidationUtils;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
@@ -34,9 +39,9 @@ public class QuittanceServiceImpl implements IQuittanceService {
     private final DateUtils dateUtils;
     private final ValidationUtils validationUtils;
     private final QtcQuittanceEntityRepository qtcQuittanceRepository;
+    private final RefVilleEntityRepository refVilleRepository;
 
-
-
+    private final SearchUtils searchUtils;
 
 
     @Override
@@ -68,20 +73,17 @@ public class QuittanceServiceImpl implements IQuittanceService {
         }*/
 
 
-        IntermediaireEntity inter=intermediaireEntityRepository.findById(quittanceDTO.getIntermediaireid()).orElseThrow();//7L
-        RefQuittanceEntity refQuittance = refQuittanceRepository.findById(quittanceDTO.getRefQuittanceid()).orElseThrow();//1L
-        HabUtilisateurEntity habUtilisateurEntity=habUtilisateurRepository.findById(quittanceDTO.getHabUtilisateurid()).orElseThrow();//1L
-        QtcRemiseEntity qtcRemiseEntity=qtcRemiseEntityRepository.findById(quittanceDTO.getQtcRemiseid()).orElseThrow();//1L
-        PoliceEntity police=policeEntityRepository.findById(quittanceDTO.getPoliceid()).orElseThrow();//1L || 3
 
-         QtcQuittanceEntity quittanceEntity = quittanceMapper.toEntity(quittanceDTO);
+        QtcQuittanceEntity quittanceEntity = quittanceMapper.toEntity(quittanceDTO);
 
-         quittanceEntity.setIntermediaire(inter);
-         quittanceEntity.setRefQuittance(refQuittance);
-         quittanceEntity.setHabUtilisateur(habUtilisateurEntity);
-         quittanceEntity.setQtcRemise(qtcRemiseEntity);
-         quittanceEntity.setPolice(police);
-         quittanceEntity.setOrdre(String.valueOf(dateUtils.getCurrentYear()));
+
+        quittanceEntity.setOrdre(String.valueOf(dateUtils.getCurrentYear()));
+        quittanceEntity.setRefQuittance( searchUtils.getRefQuittanceEntityById(quittanceDTO.getRefQuittanceid()));
+        quittanceEntity.setIntermediaire(searchUtils.getIntermediaireEntityById(quittanceDTO.getIntermediaireid()));
+        quittanceEntity.setHabUtilisateur(searchUtils.getHabUtilisateurEntityById(quittanceDTO.getHabUtilisateurid()));
+        quittanceEntity.setQtcRemise(searchUtils.getQtcRemiseEntityById(quittanceDTO.getQtcRemiseid()));
+        quittanceEntity.setPolice(searchUtils.getPoliceEntityById(quittanceDTO.getPoliceid()));
+        quittanceEntity.setVille(searchUtils.getRefVilleEntityById(quittanceDTO.getVilleclient()));
 
 
         quittanceEntity = quittanceRepository.save(quittanceEntity);
@@ -104,23 +106,43 @@ public class QuittanceServiceImpl implements IQuittanceService {
         return (qtcQuittanceEntity != null) ? true : false;
     }
 
-    @Override
+   /* @Override
     public List<QtcQuittanceDTO> getAllQuittance() {
         List<QtcQuittanceEntity> dataList = quittanceRepository.findAll();
         return dataList.stream()
                 .map(quittanceMapper::toDto)
                 .collect(Collectors.toList());
+    }*/
+
+    @Override
+    public Page<QtcQuittanceDTO> getAllQuittance(int pageNumber, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        Page<QtcQuittanceEntity> quittancePage = quittanceRepository.findAll(pageable);
+        List<QtcQuittanceDTO> quittanceDTOList = quittancePage.getContent()
+                .stream()
+                .map(quittanceMapper::toDto)
+                .collect(Collectors.toList());
+        return new PageImpl<>(quittanceDTOList, pageable, quittancePage.getTotalElements());
     }
+
 
     @Override
     public QtcQuittanceDTO update(QtcQuittanceDTO quittanceDTO) {
+        QtcQuittanceEntity quittanceEntity = qtcQuittanceRepository.findById(quittanceDTO.getQuittanceid())
+                .orElseThrow(() -> new IllegalArgumentException("Quittance not found"));
 
-        QtcQuittanceEntity quittanceEntity = quittanceMapper.toEntity(quittanceDTO);
-      //  QtcQuittanceEntity quittance=qtcQuittanceRepository.findById(quittanceEntity.getQuittanceid()).orElseThrow();
-        quittanceEntity = quittanceRepository.save(quittanceEntity);
+        quittanceMapper.partialUpdate(quittanceDTO, quittanceEntity);
+
+        quittanceEntity.setRefQuittance( searchUtils.getRefQuittanceEntityById(quittanceDTO.getRefQuittanceid()));
+        quittanceEntity.setIntermediaire(searchUtils.getIntermediaireEntityById(quittanceDTO.getIntermediaireid()));
+        quittanceEntity.setHabUtilisateur(searchUtils.getHabUtilisateurEntityById(quittanceDTO.getHabUtilisateurid()));
+        quittanceEntity.setQtcRemise(searchUtils.getQtcRemiseEntityById(quittanceDTO.getQtcRemiseid()));
+        //quittanceEntity.setPolice(searchUtils.getPoliceEntityById(quittanceDTO.getPoliceid()));
+        quittanceEntity.setVille(searchUtils.getRefVilleEntityById(quittanceDTO.getVilleclient()));
+
+        quittanceEntity = qtcQuittanceRepository.save(quittanceEntity);
         return quittanceMapper.toDto(quittanceEntity);
     }
-
     @Override
     public List<QtcQuittanceDTO> getByRefQuittanceEntity(Long refQuittanceid) {
         RefQuittanceEntity refQuittance = refQuittanceRepository.findById(refQuittanceid).orElseThrow();//1L
@@ -142,7 +164,7 @@ public class QuittanceServiceImpl implements IQuittanceService {
         return quittanceMapper.toQuittanceDTOList(quittanceEntities);
     }
     @Override
-    public List<QtcQuittanceDTO> searchQuittances(Long refQuittanceid, Calendar dateDebut, Calendar dateFin, Long codePolice) {
+    public Page<QtcQuittanceDTO> searchQuittances(Long refQuittanceid, Calendar dateDebut, Calendar dateFin, Long codePolice, int pageNumber, int pageSize) {
         RefQuittanceEntity refQuittance = null;
         PoliceEntity police = null;
         List<QtcQuittanceEntity> quittanceEntities = null;
@@ -159,7 +181,11 @@ public class QuittanceServiceImpl implements IQuittanceService {
             throw new IllegalArgumentException("At least one parameter must be non-null.");
         }
 
-        return quittanceMapper.toQuittanceDTOList(quittanceEntities);
+        Pageable paging = PageRequest.of(pageNumber, pageSize);
+        Page<QtcQuittanceEntity> pagedResult = new PageImpl<>(quittanceEntities, paging, quittanceEntities.size());
+
+        return pagedResult.map(quittanceMapper::toDto);
     }
+
 
 }
