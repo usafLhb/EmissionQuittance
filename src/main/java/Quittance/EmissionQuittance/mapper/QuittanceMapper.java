@@ -13,6 +13,7 @@ import java.util.List;
 public interface QuittanceMapper {
 
     QtcQuittanceDTO toDto(QtcQuittanceEntity entity);
+
     QtcQuittanceEntity toEntity(QtcQuittanceDTO qtcQuittanceDTO);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
@@ -20,6 +21,5 @@ public interface QuittanceMapper {
 
     List<QtcQuittanceDTO> toQuittanceDTOList(List<QtcQuittanceEntity> quittanceEntityList);
 
-    List<QtcQuittanceEntity> toEntityList(List<QtcQuittanceDTO> quittanceDTOs);
 
 }
