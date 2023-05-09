@@ -22,9 +22,8 @@ public class PoliceDTO {
     private String raisonSociale ;
     @NotNull
     private String adresse ;
-    @NotNull
+
     private Calendar dateEffet;
-    @NotNull
     private Double primeNette;
     private Double taxe ;
     private Double acce ;

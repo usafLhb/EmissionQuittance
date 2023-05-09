@@ -15,67 +15,67 @@ public class QtcQuittanceEntity {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "CODESOCIETE", nullable = true)
+    @Column(name = "CODESOCIETE")
     private int codesociete;
     @Basic
-    @Column(name = "NATUREQUITTANCE", nullable = true)
+    @Column(name = "NATUREQUITTANCE")
     private String naturequittance;
     @Basic
-    @Column(name = "NUMEROQUITTANCE", nullable = true)
+    @Column(name = "NUMEROQUITTANCE")
     private String numeroquittance;
     @Basic
-    @Column(name = "CODEPOLICE", nullable = true)
+    @Column(name = "CODEPOLICE")
     private String codepolice;
     @Basic
-    @Column(name = "NUMEROQUITTANCEORIGINE", nullable = true)
+    @Column(name = "NUMEROQUITTANCEORIGINE")
     private String numeroquittanceorigine;
     @Basic
-    @Column(name = "CODECLIENT", nullable = true)
+    @Column(name = "CODECLIENT")
     private String codeclient;
     @Basic
-    @Column(name = "CODEINTERMEDIAIRE", nullable = true)
+    @Column(name = "CODEINTERMEDIAIRE")
     private Long codeintermediaire;
     @Basic
-    @Column(name = "CODEBRANCHE", nullable = true)
+    @Column(name = "CODEBRANCHE")
     private Long codebranche;
     @Basic
-    @Column(name = "NOMCLIENT", nullable = true)
+    @Column(name = "NOMCLIENT")
     private String nomclient;
     @Basic
-    @Column(name = "PRENOMCLIENT", nullable = true)
+    @Column(name = "PRENOMCLIENT")
     private String prenomclient;
     @Basic
-    @Column(name = "ADRESSECLIENT", nullable = true)
+    @Column(name = "ADRESSECLIENT")
     private String adresseclient;
     @Basic
-    @Column(name = "VILLECLIENT", nullable = true)
+    @Column(name = "VILLECLIENT")
     private String villeclient;
     @Basic
-    @Column(name = "TYPEQUITTANCE", nullable = true)
+    @Column(name = "TYPEQUITTANCE")
     private String typequittance;
     @Basic
-    @Column(name = "PRIMENETTE", nullable = true)
+    @Column(name = "PRIMENETTE")
     private double primenette;
     @Basic
-    @Column(name = "TAUXTAXE", nullable = true)
+    @Column(name = "TAUXTAXE")
     private double tauxtaxe;
     @Basic
-    @Column(name = "MONTANTTAXE", nullable = true)
+    @Column(name = "MONTANTTAXE")
     private double montanttaxe;
     @Basic
-    @Column(name = "MONTANTACCESSOIRE", nullable = true)
+    @Column(name = "MONTANTACCESSOIRE")
     private double montantaccessoire;
     @Basic
-    @Column(name = "MONTANTENCAISSE", nullable = true)
+    @Column(name = "MONTANTENCAISSE")
     private double montantencaisse;
     @Basic
-    @Column(name = "MONTANTCOMMISIONRETENUE", nullable = true)
+    @Column(name = "MONTANTCOMMISIONRETENUE")
     private double montantcommisionretenue;
     @Basic
-    @Column(name = "MONTANTCOMMISIONRISTOURNE", nullable = true)
+    @Column(name = "MONTANTCOMMISIONRISTOURNE")
     private double montantcommisionristourne;
     @Basic
-    @Column(name = "MONTONTREMISE", nullable = true)
+    @Column(name = "MONTONTREMISE")
     private double montontremise;
     @Basic
     @Column(name = "PERIODICITE", nullable = true)

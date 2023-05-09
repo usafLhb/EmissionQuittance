@@ -26,11 +26,9 @@ public class PoliceEntity {
     private String raisonSociale ;
     @NotNull
     private String adresse ;
-    @NotNull
     private Calendar dateEffet;
-
     private Calendar dateEcheance;
-    @NotNull
+
     private Double primeNette;
     private Double taxe ;
     private Double acce ;
@@ -76,7 +74,5 @@ public class PoliceEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "habUtilisateur")
     private HabUtilisateurEntity habUtilisateur;
-
-
 
 }
