@@ -1,7 +1,9 @@
 package Quittance.EmissionQuittance.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
 import java.util.List;
@@ -30,52 +32,50 @@ public class QtcQuittanceEntity {
     @Column(name = "NUMEROQUITTANCEORIGINE")
     private String numeroquittanceorigine;
     @Basic
-    @Column(name = "CODECLIENT")
+    @Column(name = "CODECLIENT" )
     private String codeclient;
     @Basic
-    @Column(name = "CODEINTERMEDIAIRE")
+    @Column(name = "CODEINTERMEDIAIRE" )
     private Long codeintermediaire;
     @Basic
-    @Column(name = "CODEBRANCHE")
+    @Column(name = "CODEBRANCHE", nullable = true)
     private Long codebranche;
     @Basic
-    @Column(name = "NOMCLIENT")
+    @Column(name = "NOMCLIENT", nullable = true)
     private String nomclient;
     @Basic
-    @Column(name = "PRENOMCLIENT")
+    @Column(name = "PRENOMCLIENT", nullable = true)
     private String prenomclient;
     @Basic
-    @Column(name = "ADRESSECLIENT")
+    @Column(name = "ADRESSECLIENT", nullable = true)
     private String adresseclient;
+
     @Basic
-    @Column(name = "VILLECLIENT")
-    private String villeclient;
-    @Basic
-    @Column(name = "TYPEQUITTANCE")
+    @Column(name = "TYPEQUITTANCE", nullable = true)
     private String typequittance;
-    @Basic
-    @Column(name = "PRIMENETTE")
+    @Positive
+    @Column(name = "PRIMENETTE", nullable = true)
     private double primenette;
     @Basic
-    @Column(name = "TAUXTAXE")
+    @Column(name = "TAUXTAXE", nullable = true)
     private double tauxtaxe;
     @Basic
-    @Column(name = "MONTANTTAXE")
+    @Column(name = "MONTANTTAXE", nullable = true)
     private double montanttaxe;
     @Basic
-    @Column(name = "MONTANTACCESSOIRE")
+    @Column(name = "MONTANTACCESSOIRE", nullable = true)
     private double montantaccessoire;
     @Basic
-    @Column(name = "MONTANTENCAISSE")
+    @Column(name = "MONTANTENCAISSE", nullable = true)
     private double montantencaisse;
     @Basic
-    @Column(name = "MONTANTCOMMISIONRETENUE")
+    @Column(name = "MONTANTCOMMISIONRETENUE", nullable = true)
     private double montantcommisionretenue;
     @Basic
-    @Column(name = "MONTANTCOMMISIONRISTOURNE")
+    @Column(name = "MONTANTCOMMISIONRISTOURNE", nullable = true)
     private double montantcommisionristourne;
     @Basic
-    @Column(name = "MONTONTREMISE")
+    @Column(name = "MONTONTREMISE", nullable = true)
     private double montontremise;
     @Basic
     @Column(name = "PERIODICITE", nullable = true)
@@ -154,7 +154,6 @@ public class QtcQuittanceEntity {
     @JoinColumn(name = "Intermediaire_ID")
     private IntermediaireEntity intermediaire;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "refQuittance")
     private RefQuittanceEntity refQuittance;
@@ -174,13 +173,18 @@ public class QtcQuittanceEntity {
     private HabUtilisateurEntity habUtilisateur;
 
     /*Ajouter*/
+   // @Column(name = "VILLECLIENT")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "VILLECLIENT")
+    private RefVilleEntity ville;
 
-    @Basic
-    @Column(name = "EXERCICE", nullable = true)
     private String exercice;
-
-    @Basic
-    @Column(name = "ordre", nullable = true)
     private String ordre;
+    private Calendar dateEcheance;
+    private Calendar dateTerme;
+
+    @ManyToOne
+    @JoinColumn(name = "police_id")
+    private PoliceEntity police;
 
 }

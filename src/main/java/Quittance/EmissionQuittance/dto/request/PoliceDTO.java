@@ -24,6 +24,7 @@ public class PoliceDTO {
     private String adresse ;
 
     private Calendar dateEffet;
+
     private Double primeNette;
     private Double taxe ;
     private Double acce ;

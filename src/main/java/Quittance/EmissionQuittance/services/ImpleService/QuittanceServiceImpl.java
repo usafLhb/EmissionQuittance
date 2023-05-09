@@ -128,7 +128,7 @@ public class QuittanceServiceImpl implements IQuittanceService {
 
     @Override
     public QtcQuittanceDTO update(QtcQuittanceDTO quittanceDTO) {
-        QtcQuittanceEntity quittanceEntity = qtcQuittanceRepository.findById(quittanceDTO.getQuittanceid())
+        QtcQuittanceEntity quittanceEntity = qtcQuittanceRepository.findById(quittanceDTO.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Quittance not found"));
 
         quittanceMapper.partialUpdate(quittanceDTO, quittanceEntity);
@@ -178,12 +178,18 @@ public class QuittanceServiceImpl implements IQuittanceService {
             police = policeEntityRepository.findById(codePolice).orElseThrow();
             quittanceEntities = quittanceRepository.findAllByPolice(police);
         } else {
-            throw new IllegalArgumentException("At least one parameter must be non-null.");
+            quittanceEntities = quittanceRepository.findAll();
+           // throw new IllegalArgumentException("At least one parameter must be non-null.");
         }
+       /* Pageable paging = PageRequest.of(pageNumber, pageSize);
+        Page<QtcQuittanceEntity> pagedResult = new PageImpl<>(quittanceEntities, paging, quittanceEntities.size());
+        return pagedResult.map(quittanceMapper::toDto);*/
 
         Pageable paging = PageRequest.of(pageNumber, pageSize);
-        Page<QtcQuittanceEntity> pagedResult = new PageImpl<>(quittanceEntities, paging, quittanceEntities.size());
-
+        int startIndex = paging.getPageNumber() * paging.getPageSize();
+        int endIndex = Math.min(startIndex + paging.getPageSize(), quittanceEntities.size());
+        List<QtcQuittanceEntity> pageContent = quittanceEntities.subList(startIndex, endIndex);
+        Page<QtcQuittanceEntity> pagedResult = new PageImpl<>(pageContent, paging, quittanceEntities.size());
         return pagedResult.map(quittanceMapper::toDto);
     }
 

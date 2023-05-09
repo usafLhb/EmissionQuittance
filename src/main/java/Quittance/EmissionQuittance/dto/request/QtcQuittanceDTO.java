@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 
 public class QtcQuittanceDTO {
-    private Long quittanceid;
+    private Long id;
     private int codesociete;
     private String naturequittance;
     private String numeroquittance;
