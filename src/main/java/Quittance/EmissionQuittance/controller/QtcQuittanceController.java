@@ -67,20 +67,27 @@ public class QtcQuittanceController {
     public List<QtcQuittanceDTO> searchByCodePolice(@PathVariable Long codePolice) {
         return quittanceService.searchByCodePolice(codePolice);
     }
-    @GetMapping("/search")
-    public ResponseEntity<Page<QtcQuittanceDTO>> searchQuittances(
-            @RequestParam(required = false) Long refQuittanceid,
-            @RequestParam(required = false) @DateTimeFormat(pattern="yyyy-MM-dd") Calendar dateDebut,
-            @RequestParam(required = false) @DateTimeFormat(pattern="yyyy-MM-dd") Calendar dateFin,
-            @RequestParam(required = false) Long codePolice,
-            @RequestParam(defaultValue = "0") int pageNumber,
-            @RequestParam(defaultValue = "3") int pageSize) {
+        @GetMapping("/search")
+        public ResponseEntity<Page<QtcQuittanceDTO>> searchQuittances(
+                @RequestParam(required = false) Long refQuittanceid,
+                @RequestParam(required = false) @DateTimeFormat(pattern="yyyy-MM-dd") Calendar dateDebut,
+                @RequestParam(required = false) @DateTimeFormat(pattern="yyyy-MM-dd") Calendar dateFin,
+                @RequestParam(required = false) Long codePolice,
+                @RequestParam(defaultValue = "0") int pageNumber,
+                @RequestParam(defaultValue = "3") int pageSize) {
 
-        Page<QtcQuittanceDTO> quittanceDTOs = quittanceService.searchQuittances(refQuittanceid, dateDebut, dateFin, codePolice, pageNumber, pageSize);
+            Page<QtcQuittanceDTO> quittanceDTOs = quittanceService.searchQuittances(refQuittanceid, dateDebut, dateFin, codePolice, pageNumber, pageSize);
 
-        return ResponseEntity.ok(quittanceDTOs);
+            return ResponseEntity.ok(quittanceDTOs);
+        }
+
+
+    @GetMapping("/getAllQuittances")
+    public   ResponseEntity<List<QtcQuittanceDTO>>getAllQuittances()  {
+
+        List<QtcQuittanceDTO> quittanceDTOList=quittanceService.getAllQuittances();
+        return ResponseEntity.ok(quittanceDTOList);
     }
-
 
 
 }

@@ -47,7 +47,7 @@ public class QuittanceServiceImpl implements IQuittanceService {
     @Override
     public QtcQuittanceDTO save(QtcQuittanceDTO quittanceDTO) {
 
-         if(quittanceDTO.getTauxcommission()>25  ){
+      /*   if(quittanceDTO.getTauxcommission()>25  ){
              throw new IllegalArgumentException("Le taux de commission ne peut pas dépasser 25%");
          }
         if(quittanceDTO.getMontantaccessoire() != 0 && quittanceDTO.getMontantaccessoire() != 10 && quittanceDTO.getMontantaccessoire() != 15 && quittanceDTO.getMontantaccessoire() != 20 && quittanceDTO.getMontantaccessoire() != 30){
@@ -67,7 +67,9 @@ public class QuittanceServiceImpl implements IQuittanceService {
         }
         if(! validationUtils.isTaxAmountValid(quittanceDTO.getPrimenette() , quittanceDTO.getMontanttaxe())){
             throw new IllegalArgumentException("Le montant de la taxe ne doit pas etre  supperieur a 15% de la prime \n");
-        }
+        }*/
+
+
        /* if (quittanceDTO.getQtcRemiseid() != null){
             throw new IllegalArgumentException("Remise  doit  etre inserer \n");
         }*/
@@ -192,6 +194,16 @@ public class QuittanceServiceImpl implements IQuittanceService {
         Page<QtcQuittanceEntity> pagedResult = new PageImpl<>(pageContent, paging, quittanceEntities.size());
         return pagedResult.map(quittanceMapper::toDto);
     }
+
+
+
+    public List<QtcQuittanceDTO> getAllQuittances() {
+        List<QtcQuittanceEntity> quittanceEntities = quittanceRepository.findAll();
+        return quittanceEntities.stream()
+                .map(quittanceMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
 
 
 }
