@@ -79,13 +79,13 @@ public class QuittanceServiceImpl implements IQuittanceService {
         QtcQuittanceEntity quittanceEntity = quittanceMapper.toEntity(quittanceDTO);
 
 
-        quittanceEntity.setOrdre(String.valueOf(dateUtils.getCurrentYear()));
-        quittanceEntity.setRefQuittance( searchUtils.getRefQuittanceEntityById(quittanceDTO.getRefQuittanceid()));
-        quittanceEntity.setIntermediaire(searchUtils.getIntermediaireEntityById(quittanceDTO.getIntermediaireid()));
+       quittanceEntity.setOrdre(String.valueOf(dateUtils.getCurrentYear()));
+     quittanceEntity.setRefQuittance( searchUtils.getRefQuittanceEntityById(quittanceDTO.getRefQuittanceid()));
+      quittanceEntity.setIntermediaire(searchUtils.getIntermediaireEntityById(quittanceDTO.getIntermediaireid()));
         quittanceEntity.setHabUtilisateur(searchUtils.getHabUtilisateurEntityById(quittanceDTO.getHabUtilisateurid()));
         quittanceEntity.setQtcRemise(searchUtils.getQtcRemiseEntityById(quittanceDTO.getQtcRemiseid()));
         quittanceEntity.setPolice(searchUtils.getPoliceEntityById(quittanceDTO.getPoliceid()));
-        quittanceEntity.setVille(searchUtils.getRefVilleEntityById(quittanceDTO.getVilleclient()));
+       quittanceEntity.setVille(searchUtils.getRefVilleEntityById(quittanceDTO.getVilleclient()));
 
 
         quittanceEntity = quittanceRepository.save(quittanceEntity);
