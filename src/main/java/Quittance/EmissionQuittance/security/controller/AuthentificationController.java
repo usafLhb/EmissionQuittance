@@ -20,6 +20,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
+@CrossOrigin
 public class AuthentificationController {
     private  final AuthenticationService authenticationService;
     private  final LogoutService logoutService;

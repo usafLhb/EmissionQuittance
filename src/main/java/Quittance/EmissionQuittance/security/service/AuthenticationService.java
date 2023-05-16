@@ -42,7 +42,8 @@ static String key_jwt;
     public AuthentificationResponse register(RegisterRequest request) {
         List<Role> roles = new ArrayList<Role>();
         roles.add(Role.USER);
-        roles.add(Role.ADMIN);
+       // roles.add(Role.ADMIN);
+        System.out.println("request.toString()request.toString()"+request.toString());
         var user = User.builder()
                 .firstname(request.getFirstname())
                 .lastname(request.getLastname())

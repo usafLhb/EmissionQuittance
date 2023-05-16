@@ -1,5 +1,7 @@
 package Quittance.EmissionQuittance.security.service;
 
+import Quittance.EmissionQuittance.security.user.User;
+import Quittance.EmissionQuittance.security.user.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -10,20 +12,23 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
 public class JwtService {
 
+   private final UserRepository userRepository;
     private long jwtExpiration;
 
     private long refreshExpiration;
     private static final String SECRET_KEY ="635166546A576E5A7134743777217A25432A462D4A614E645267556B58703273";
+
+    public JwtService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     public String extractUsername(String token) {
         return extractClaim(token,Claims::getSubject);
     }
@@ -86,8 +91,13 @@ public class JwtService {
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
 
+        var user = userRepository.findByEmail(userDetails.getUsername())
+                .orElseThrow();
         Map<String, Object> claims = new HashMap<>();
         claims.put("roles", roles);
+        claims.put("firstName", user.getFirstname());
+        claims.put("lastname", user.getLastname());
+        claims.put("adresse", userDetails.getUsername());
         claims.putAll(extraClaims);
 
         return Jwts
