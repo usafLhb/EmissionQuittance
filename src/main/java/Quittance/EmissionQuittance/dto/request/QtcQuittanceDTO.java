@@ -79,6 +79,6 @@ public class QtcQuittanceDTO {
     private Double tauxPrimeNette;
     private Double primeGareEve ;
     private Double tauxTaxeParafiscale;
-
+    private Long versioncommerciale;
 
 }

@@ -3,7 +3,6 @@ package Quittance.EmissionQuittance.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
 import java.util.List;
@@ -208,6 +207,10 @@ public class QtcQuittanceEntity {
     @Column(name = "TauxTaxeParafiscale ")
     private Double tauxTaxeParafiscale;
 
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "prdVersioncommerciale")
+    private PrdVersioncommercialeEntity prdVersioncommerciale;
 
 
 }

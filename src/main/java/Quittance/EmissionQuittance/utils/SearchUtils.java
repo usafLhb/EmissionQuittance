@@ -17,8 +17,12 @@ public class SearchUtils {
     private final PoliceEntityRepository policeEntityRepository;
     private final QtcQuittanceEntityRepository qtcQuittanceRepository;
     private final RefVilleEntityRepository refVilleRepository;
+    private final PrdVersioncommercialeEntityRepository prdVersioncommerciale;
 
-
+    public PrdVersioncommercialeEntity getversioncommercialeById(long id) {
+        return prdVersioncommerciale.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("prdVersioncommerciale not found with id " + id));
+    }
     public IntermediaireEntity getIntermediaireEntityById(Long id) {
         return intermediaireEntityRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Intermediaire not found with id " + id));

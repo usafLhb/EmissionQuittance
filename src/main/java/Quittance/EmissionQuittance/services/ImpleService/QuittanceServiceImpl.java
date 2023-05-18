@@ -80,12 +80,13 @@ public class QuittanceServiceImpl implements IQuittanceService {
 
 
        quittanceEntity.setOrdre(String.valueOf(dateUtils.getCurrentYear()));
-     quittanceEntity.setRefQuittance( searchUtils.getRefQuittanceEntityById(quittanceDTO.getRefQuittanceid()));
-      quittanceEntity.setIntermediaire(searchUtils.getIntermediaireEntityById(quittanceDTO.getIntermediaireid()));
-        quittanceEntity.setHabUtilisateur(searchUtils.getHabUtilisateurEntityById(quittanceDTO.getHabUtilisateurid()));
-        quittanceEntity.setQtcRemise(searchUtils.getQtcRemiseEntityById(quittanceDTO.getQtcRemiseid()));
-        quittanceEntity.setPolice(searchUtils.getPoliceEntityById(quittanceDTO.getPoliceid()));
+       quittanceEntity.setRefQuittance( searchUtils.getRefQuittanceEntityById(quittanceDTO.getRefQuittanceid()));
+       quittanceEntity.setIntermediaire(searchUtils.getIntermediaireEntityById(quittanceDTO.getIntermediaireid()));
+       quittanceEntity.setHabUtilisateur(searchUtils.getHabUtilisateurEntityById(quittanceDTO.getHabUtilisateurid()));
+       quittanceEntity.setQtcRemise(searchUtils.getQtcRemiseEntityById(quittanceDTO.getQtcRemiseid()));
+       quittanceEntity.setPolice(searchUtils.getPoliceEntityById(quittanceDTO.getPoliceid()));
        quittanceEntity.setVille(searchUtils.getRefVilleEntityById(quittanceDTO.getVilleclient()));
+       quittanceEntity.setPrdVersioncommerciale(searchUtils.getversioncommercialeById(quittanceDTO.getVersioncommerciale()));
 
 
         quittanceEntity = quittanceRepository.save(quittanceEntity);
@@ -94,7 +95,6 @@ public class QuittanceServiceImpl implements IQuittanceService {
 
     @Override
     public boolean getQuittanceById(Long id) {
-        System.out.println("idid "+id);
         PoliceEntity police= policeEntityRepository.findById(id).orElseThrow();
         System.out.println("policepolice "+police.toString());
         QtcQuittanceEntity qtcQuittanceEntity =  quittanceRepository.findByPolice(police);
@@ -141,6 +141,9 @@ public class QuittanceServiceImpl implements IQuittanceService {
         quittanceEntity.setQtcRemise(searchUtils.getQtcRemiseEntityById(quittanceDTO.getQtcRemiseid()));
         //quittanceEntity.setPolice(searchUtils.getPoliceEntityById(quittanceDTO.getPoliceid()));
         quittanceEntity.setVille(searchUtils.getRefVilleEntityById(quittanceDTO.getVilleclient()));
+        quittanceEntity.setPrdVersioncommerciale(searchUtils.getversioncommercialeById(quittanceDTO.getVersioncommerciale()));
+
+
 
         quittanceEntity = qtcQuittanceRepository.save(quittanceEntity);
         return quittanceMapper.toDto(quittanceEntity);
@@ -166,7 +169,7 @@ public class QuittanceServiceImpl implements IQuittanceService {
         return quittanceMapper.toQuittanceDTOList(quittanceEntities);
     }
     @Override
-    public Page<QtcQuittanceDTO> searchQuittances(Long refQuittanceid, Calendar dateDebut, Calendar dateFin, Long codePolice, int pageNumber, int pageSize) {
+        public Page<QtcQuittanceDTO> searchQuittances(Long refQuittanceid, Calendar dateDebut, Calendar dateFin, Long codePolice, int pageNumber, int pageSize) {
         RefQuittanceEntity refQuittance = null;
         PoliceEntity police = null;
         List<QtcQuittanceEntity> quittanceEntities = null;
