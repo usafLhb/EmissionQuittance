@@ -18,7 +18,7 @@ import java.util.List;
 public class PrdVersioncommercialeDTO {
 
     private Long id;
-    @NotNull
+
     private String nomcommercial;
 
 
