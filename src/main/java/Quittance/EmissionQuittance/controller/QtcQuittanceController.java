@@ -1,6 +1,7 @@
 package Quittance.EmissionQuittance.controller;
 
 import Quittance.EmissionQuittance.dto.request.QtcQuittanceDTO;
+import Quittance.EmissionQuittance.dto.response.QuittanceResponse;
 import Quittance.EmissionQuittance.entities.QtcQuittanceEntity;
 import Quittance.EmissionQuittance.services.ImpleService.QuittanceServiceImpl;
 import Quittance.EmissionQuittance.services.ImpleService.testSer;
@@ -13,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -82,11 +84,16 @@ public class QtcQuittanceController {
         }
 
 
-    @GetMapping("/getAllQuittances")
+  /*  @GetMapping("/getAllQuittances")
     public   ResponseEntity<List<QtcQuittanceDTO>>getAllQuittances()  {
 
         List<QtcQuittanceDTO> quittanceDTOList=quittanceService.getAllQuittances();
         return ResponseEntity.ok(quittanceDTOList);
+    }*/
+
+    @GetMapping("/getAllQuittances")
+    public List<QtcQuittanceEntity> getAllQuittances() {
+        return  quittanceService.getAllQuittances();
     }
 
 

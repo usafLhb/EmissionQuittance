@@ -1,11 +1,10 @@
 package Quittance.EmissionQuittance.services.Iservice;
 
-import Quittance.EmissionQuittance.dto.request.PoliceDTO;
 import Quittance.EmissionQuittance.dto.request.QtcQuittanceDTO;
+import Quittance.EmissionQuittance.dto.response.QuittanceResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public interface IQuittanceService {

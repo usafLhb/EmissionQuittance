@@ -1,17 +1,15 @@
 package Quittance.EmissionQuittance.services.ImpleService;
 
 import Quittance.EmissionQuittance.dto.request.QtcQuittanceDTO;
+import Quittance.EmissionQuittance.dto.response.QuittanceResponse;
 import Quittance.EmissionQuittance.entities.*;
-import Quittance.EmissionQuittance.exception.PoliceNotFoundException;
-import Quittance.EmissionQuittance.mapper.PoliceEntityMapper;
 import Quittance.EmissionQuittance.mapper.QuittanceMapper;
+import Quittance.EmissionQuittance.mapper.responseMapper.QuittanceMapperResponse;
 import Quittance.EmissionQuittance.repositories.*;
-import Quittance.EmissionQuittance.services.Iservice.IPoliceService;
 import Quittance.EmissionQuittance.services.Iservice.IQuittanceService;
 import Quittance.EmissionQuittance.utils.DateUtils;
 import Quittance.EmissionQuittance.utils.SearchUtils;
 import Quittance.EmissionQuittance.utils.ValidationUtils;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -20,9 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -31,6 +27,7 @@ public class QuittanceServiceImpl implements IQuittanceService {
 
     private final QtcQuittanceEntityRepository quittanceRepository;
     private final QuittanceMapper quittanceMapper;
+    private final QuittanceMapperResponse quittanceMapperResponse;
     private final IntermediaireEntityRepository intermediaireEntityRepository;
     private final RefQuittanceRepository refQuittanceRepository;
     private final HabUtilisateurEntityRepository habUtilisateurRepository;
@@ -169,7 +166,7 @@ public class QuittanceServiceImpl implements IQuittanceService {
         return quittanceMapper.toQuittanceDTOList(quittanceEntities);
     }
     @Override
-        public Page<QtcQuittanceDTO> searchQuittances(Long refQuittanceid, Calendar dateDebut, Calendar dateFin, Long codePolice, int pageNumber, int pageSize) {
+    public Page<QtcQuittanceDTO> searchQuittances(Long refQuittanceid, Calendar dateDebut, Calendar dateFin, Long codePolice, int pageNumber, int pageSize) {
         RefQuittanceEntity refQuittance = null;
         PoliceEntity police = null;
         List<QtcQuittanceEntity> quittanceEntities = null;
@@ -184,7 +181,7 @@ public class QuittanceServiceImpl implements IQuittanceService {
             quittanceEntities = quittanceRepository.findAllByPolice(police);
         } else {
             quittanceEntities = quittanceRepository.findAll();
-           // throw new IllegalArgumentException("At least one parameter must be non-null.");
+            // throw new IllegalArgumentException("At least one parameter must be non-null.");
         }
        /* Pageable paging = PageRequest.of(pageNumber, pageSize);
         Page<QtcQuittanceEntity> pagedResult = new PageImpl<>(quittanceEntities, paging, quittanceEntities.size());
@@ -200,11 +197,8 @@ public class QuittanceServiceImpl implements IQuittanceService {
 
 
 
-    public List<QtcQuittanceDTO> getAllQuittances() {
-        List<QtcQuittanceEntity> quittanceEntities = quittanceRepository.findAll();
-        return quittanceEntities.stream()
-                .map(quittanceMapper::toDto)
-                .collect(Collectors.toList());
+    public List<QtcQuittanceEntity> getAllQuittances() {
+        return quittanceRepository.findAll();
     }
 
 
