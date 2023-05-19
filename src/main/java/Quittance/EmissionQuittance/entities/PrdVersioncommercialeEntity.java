@@ -24,46 +24,46 @@ public class PrdVersioncommercialeEntity {
     @Column(name = "NOMCOMMERCIAL")
     private String nomcommercial;
 
-    @Column(name = "DATEEDEBUT", nullable = true)
+    @Column(name = "DATEEDEBUT")
     private Calendar dateedebut;
 
-    @Column(name = "DATEFIN", nullable = true)
+    @Column(name = "DATEFIN")
     private Calendar datefin;
 
-    @Column(name = "COMPTEBANCAIREPRESTATION", nullable = true)
+    @Column(name = "COMPTEBANCAIREPRESTATION")
     private String comptebancaireprestation;
 
-    @Column(name = "COMPTEBANCAIRESERVICE", nullable = true)
+    @Column(name = "COMPTEBANCAIRESERVICE")
     private String comptebancaireservice;
 
-    @Column(name = "REFHOMOLOGATION", nullable = true)
+    @Column(name = "REFHOMOLOGATION")
     private Long refhomologation;
 
-    @Column(name = "CODEINTERMEDIAIRE", nullable = true)
+    @Column(name = "CODEINTERMEDIAIRE")
     private int codeintermediaire;
 
-    @Column(name = "IDPRODUIT", nullable = true)
+    @Column(name = "IDPRODUIT")
     private int idproduit;
 
-    @Column(name = "IDSOCIETE", nullable = true)
+    @Column(name = "IDSOCIETE")
     private int idsociete;
 
-    @Column(name = "DELAIMODIFENINSTANCE", nullable = true)
+    @Column(name = "DELAIMODIFENINSTANCE")
     private Calendar delaimodifeninstance;
 
-    @Column(name = "NOMBREMAXADHESION", nullable = true)
+    @Column(name = "NOMBREMAXADHESION")
     private Long nombremaxadhesion;
 
-    @Column(name = "CODE", nullable = true)
-    private int code;
+   /* @Column(name = "CODE")
+    private int code;*/
 
-    @Column(name = "NOMCOMMERCIAL_AR", nullable = true)
+    @Column(name = "NOMCOMMERCIAL_AR")
     private String nomcommercialAr;
 
-    @Column(name = "PLAFONDINDEMNITE", nullable = true)
+    @Column(name = "PLAFONDINDEMNITE")
     private String plafondindemnite;
 
-    @Column(name = "DATEMAJPRODUIT", nullable = true)
+    @Column(name = "DATEMAJPRODUIT")
     private Calendar datemajproduit;
 
     @ManyToOne(fetch = FetchType.LAZY)

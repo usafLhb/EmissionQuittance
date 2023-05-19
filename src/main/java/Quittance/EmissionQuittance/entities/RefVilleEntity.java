@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "REF_VILLE" )
+@Table(name = "REF_VILLE")
 public class RefVilleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
