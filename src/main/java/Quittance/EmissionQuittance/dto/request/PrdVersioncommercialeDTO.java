@@ -3,15 +3,22 @@ package Quittance.EmissionQuittance.dto.request;
 import Quittance.EmissionQuittance.entities.IntermediaireEntity;
 import Quittance.EmissionQuittance.entities.PrdVersioncommercialeEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
 import java.util.List;
 
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class PrdVersioncommercialeDTO {
+
     private Long id;
+
     private String nomcommercial;
 
 

@@ -75,7 +75,10 @@ public class QtcQuittanceDTO {
     private Long  policeid;
     private Calendar dateEcheance;
     private Calendar dateTerme;
-
-
+    private Calendar dateEmission;
+    private Double tauxPrimeNette;
+    private Double primeGareEve ;
+    private Double tauxTaxeParafiscale;
+    private Long versioncommerciale;
 
 }

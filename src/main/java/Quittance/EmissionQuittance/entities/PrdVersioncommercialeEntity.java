@@ -1,63 +1,69 @@
 package Quittance.EmissionQuittance.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
 import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "PRD_VERSIONCOMMERCIALE" )
 public class PrdVersioncommercialeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
-    @Basic
-    @Column(name = "NOMCOMMERCIAL", nullable = true)
+
+    @NotNull
+    @Column(name = "NOMCOMMERCIAL")
     private String nomcommercial;
-    @Basic
-    @Column(name = "DATEEDEBUT", nullable = true)
+
+    @Column(name = "DATEEDEBUT")
     private Calendar dateedebut;
-    @Basic
-    @Column(name = "DATEFIN", nullable = true)
+
+    @Column(name = "DATEFIN")
     private Calendar datefin;
-    @Basic
-    @Column(name = "COMPTEBANCAIREPRESTATION", nullable = true)
+
+    @Column(name = "COMPTEBANCAIREPRESTATION")
     private String comptebancaireprestation;
-    @Basic
-    @Column(name = "COMPTEBANCAIRESERVICE", nullable = true)
+
+    @Column(name = "COMPTEBANCAIRESERVICE")
     private String comptebancaireservice;
-    @Basic
-    @Column(name = "REFHOMOLOGATION", nullable = true)
+
+    @Column(name = "REFHOMOLOGATION")
     private Long refhomologation;
-    @Basic
-    @Column(name = "CODEINTERMEDIAIRE", nullable = true)
+
+    @Column(name = "CODEINTERMEDIAIRE")
     private int codeintermediaire;
-    @Basic
-    @Column(name = "IDPRODUIT", nullable = true)
+
+    @Column(name = "IDPRODUIT")
     private int idproduit;
-    @Basic
-    @Column(name = "IDSOCIETE", nullable = true)
+
+    @Column(name = "IDSOCIETE")
     private int idsociete;
-    @Basic
-    @Column(name = "DELAIMODIFENINSTANCE", nullable = true)
+
+    @Column(name = "DELAIMODIFENINSTANCE")
     private Calendar delaimodifeninstance;
-    @Basic
-    @Column(name = "NOMBREMAXADHESION", nullable = true)
+
+    @Column(name = "NOMBREMAXADHESION")
     private Long nombremaxadhesion;
-    @Basic
-    @Column(name = "CODE", nullable = true)
-    private int code;
-    @Basic
-    @Column(name = "NOMCOMMERCIAL_AR", nullable = true)
+
+   /* @Column(name = "CODE")
+    private int code;*/
+
+    @Column(name = "NOMCOMMERCIAL_AR")
     private String nomcommercialAr;
-    @Basic
-    @Column(name = "PLAFONDINDEMNITE", nullable = true)
+
+    @Column(name = "PLAFONDINDEMNITE")
     private String plafondindemnite;
-    @Basic
-    @Column(name = "DATEMAJPRODUIT", nullable = true)
+
+    @Column(name = "DATEMAJPRODUIT")
     private Calendar datemajproduit;
 
     @ManyToOne(fetch = FetchType.LAZY)

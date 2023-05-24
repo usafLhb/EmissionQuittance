@@ -1,13 +1,16 @@
 package Quittance.EmissionQuittance.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Data
@@ -26,17 +29,15 @@ public class PoliceEntity {
     private String raisonSociale ;
     @NotNull
     private String adresse ;
-
-    private Calendar dateEffet;
-
-    private Calendar dateEcheance;
+    private Date dateEffet;
+    private Date dateEcheance;
 
     private Double primeNette;
     private Double taxe ;
     private Double acce ;
     private Double tauxComm ;
-    private Calendar dateTerme ;
-    private  Calendar dateEtat;
+    private Date dateTerme ;
+    private  Date dateEtat;
     private Double nbrtete ;
     private Double revenueAnnuel ;
     private Double dureeS ;

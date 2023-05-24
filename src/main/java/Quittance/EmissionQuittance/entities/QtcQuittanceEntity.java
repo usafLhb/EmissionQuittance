@@ -3,7 +3,6 @@ package Quittance.EmissionQuittance.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;
 import java.util.List;
@@ -22,9 +21,7 @@ public class QtcQuittanceEntity {
     @Basic
     @Column(name = "NATUREQUITTANCE")
     private String naturequittance;
-    @Basic
-    @Column(name = "NUMEROQUITTANCE")
-    private String numeroquittance;
+
     @Basic
     @Column(name = "CODEPOLICE")
     private String codepolice;
@@ -92,9 +89,7 @@ public class QtcQuittanceEntity {
     @Basic
     @Column(name = "ETATQUITTANCE", nullable = true)
     private String etatquittance;
-    @Basic
-    @Column(name = "DATEETAT", nullable = true)
-    private Calendar dateetat;
+
     @Basic
     @Column(name = "DATEEFFET", nullable = true)
     private Calendar dateeffet;
@@ -186,5 +181,36 @@ public class QtcQuittanceEntity {
     @ManyToOne
     @JoinColumn(name = "police_id")
     private PoliceEntity police;
+
+    @Basic
+    @Column(name = "DATE_EMISSION", nullable = true)
+    private Calendar dateEmission;
+    @Basic
+    @Column(name = "DATEETAT", nullable = true)
+    private Calendar dateetat;
+
+    @Basic
+    @Column(name = "NUMEROQUITTANCE")
+    private String numeroquittance;
+
+
+    @Basic
+    @Column(name = "TauxPrimeNette")
+    private Double tauxPrimeNette;
+
+    @Basic
+    @Column(name = "PrimeGareEve ")
+    private Double primeGareEve ;
+
+
+    @Basic
+    @Column(name = "TauxTaxeParafiscale ")
+    private Double tauxTaxeParafiscale;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "prdVersioncommerciale")
+    private PrdVersioncommercialeEntity prdVersioncommerciale;
+
 
 }
