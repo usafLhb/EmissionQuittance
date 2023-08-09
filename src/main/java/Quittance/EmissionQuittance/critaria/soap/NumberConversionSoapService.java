@@ -2,7 +2,6 @@ package Quittance.EmissionQuittance.critaria.soap;
 
 import com.quittance.emissionquittance.critaria.soap.NumberConversion;
 import com.quittance.emissionquittance.critaria.soap.NumberConversionSoapType;
-import jakarta.xml.ws.BindingProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

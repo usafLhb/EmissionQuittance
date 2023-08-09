@@ -70,7 +70,7 @@ public class QtcQuittanceController {
         return quittanceService.searchByCodePolice(codePolice);
     }
         @GetMapping("/search")
-        public ResponseEntity<Page<QtcQuittanceDTO>> searchQuittances(
+        public ResponseEntity<Page<QuittanceResponse>> searchQuittances(
                 @RequestParam(required = false) Long refQuittanceid,
                 @RequestParam(required = false) @DateTimeFormat(pattern="yyyy-MM-dd") Calendar dateDebut,
                 @RequestParam(required = false) @DateTimeFormat(pattern="yyyy-MM-dd") Calendar dateFin,
@@ -78,7 +78,7 @@ public class QtcQuittanceController {
                 @RequestParam(defaultValue = "0") int pageNumber,
                 @RequestParam(defaultValue = "3") int pageSize) {
 
-            Page<QtcQuittanceDTO> quittanceDTOs = quittanceService.searchQuittances(refQuittanceid, dateDebut, dateFin, codePolice, pageNumber, pageSize);
+            Page<QuittanceResponse> quittanceDTOs = quittanceService.searchQuittances(refQuittanceid, dateDebut, dateFin, codePolice, pageNumber, pageSize);
 
             return ResponseEntity.ok(quittanceDTOs);
         }
@@ -92,8 +92,9 @@ public class QtcQuittanceController {
     }*/
 
     @GetMapping("/getAllQuittances")
-    public List<QtcQuittanceEntity> getAllQuittances() {
-        return  quittanceService.getAllQuittances();
+    public ResponseEntity<List<QuittanceResponse>> getAllQuittances() {
+        List<QuittanceResponse> quittances = quittanceService.getAllQuittances();
+        return new ResponseEntity<>(quittances, HttpStatus.OK);
     }
 
 

@@ -8,7 +8,7 @@ import java.util.Collection;
 
 @Entity
 @Data
-//@Table(name = "PRD_PRODUIT" )
+@Table(name = "PRD_PRODUIT" )
 public class PrdProduitEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

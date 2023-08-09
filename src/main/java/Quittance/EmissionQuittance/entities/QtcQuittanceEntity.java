@@ -2,9 +2,11 @@ package Quittance.EmissionQuittance.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -17,7 +19,7 @@ public class QtcQuittanceEntity {
     private Long id;
 
     @Column(name = "CODESOCIETE")
-    private int codesociete;
+    private String codesociete;
     @Basic
     @Column(name = "NATUREQUITTANCE")
     private String naturequittance;
@@ -79,20 +81,20 @@ public class QtcQuittanceEntity {
     private String periodicite;
     @Basic
     @Column(name = "DATEDEBUT", nullable = true)
-    private Calendar datedebut;
+    private Date datedebut;
     @Basic
     @Column(name = "DATEFIN", nullable = true)
-    private Calendar datefin;
+    private Date datefin;
     @Basic
     @Column(name = "DATEEMISSION", nullable = true)
-    private Calendar dateemission;
+    private Date dateemission;
     @Basic
     @Column(name = "ETATQUITTANCE", nullable = true)
     private String etatquittance;
 
     @Basic
     @Column(name = "DATEEFFET", nullable = true)
-    private Calendar dateeffet;
+    private Date dateeffet;
     @Basic
     @Column(name = "IDOPERATIONPRELEVEMENT", nullable = true)
     private Long idoperationprelevement;
@@ -105,9 +107,7 @@ public class QtcQuittanceEntity {
     @Basic
     @Column(name = "IDPRODUIT", nullable = true)
     private Long idproduit;
-    @Basic
-    @Column(name = "IDREMISE", nullable = true)
-    private Long idremise;
+
     @Basic
     @Column(name = "TAUXCOMMISSION", nullable = true)
     private double tauxcommission;
@@ -116,10 +116,10 @@ public class QtcQuittanceEntity {
     private double montantcommission;
     @Basic
     @Column(name = "SYNCHRONE", nullable = true)
-    private double synchrone;
+    private int synchrone;
     @Basic
     @Column(name = "DATESYNCHRONISATION", nullable = true)
-    private Calendar datesynchronisation;
+    private Date datesynchronisation;
     @Basic
     @Column(name = "MONTANTCOMMISION", nullable = true)
     private double montantcommision;
@@ -128,7 +128,7 @@ public class QtcQuittanceEntity {
     private Long numeroquittanceOld;
     @Basic
     @Column(name = "DATEVALIDATION", nullable = true)
-    private Calendar datevalidation;
+    private Date datevalidation;
     @Basic
     @Column(name = "MONTANTTAXEPARAFISCALE", nullable = true)
     private double montanttaxeparafiscale;
@@ -143,7 +143,7 @@ public class QtcQuittanceEntity {
     private String typequittanceprevoyance;
     @Basic
     @Column(name = "FORCEE", nullable = true)
-    private Long forcee;
+    private int forcee;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Intermediaire_ID")
@@ -160,7 +160,7 @@ public class QtcQuittanceEntity {
     private List<QtcDetailquittanceEntity> qtcDetailquittance;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "qtcRemise")
+    @JoinColumn(name = "IDREMISE")
     private QtcRemiseEntity qtcRemise;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -168,15 +168,16 @@ public class QtcQuittanceEntity {
     private HabUtilisateurEntity habUtilisateur;
 
     /*Ajouter*/
-   // @Column(name = "VILLECLIENT")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "VILLECLIENT")
+    private String VILLECLIENT;
+   /* @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "VILLECLIENT")
-    private RefVilleEntity ville;
+    private RefVilleEntity ville;*/
 
     private String exercice;
     private String ordre;
-    private Calendar dateEcheance;
-    private Calendar dateTerme;
+    private Date dateEcheance;
+    private Date dateTerme;
 
     @ManyToOne
     @JoinColumn(name = "police_id")
@@ -187,7 +188,7 @@ public class QtcQuittanceEntity {
     private Calendar dateEmission;
     @Basic
     @Column(name = "DATEETAT", nullable = true)
-    private Calendar dateetat;
+    private Date dateetat;
 
     @Basic
     @Column(name = "NUMEROQUITTANCE")

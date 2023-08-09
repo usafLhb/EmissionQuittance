@@ -22,9 +22,9 @@ public class QtcGarantiesEntity {
     @Basic
     @Column(name = "TAUX", nullable = true)
     private Double taux;
-    @Basic
-    @Column(name = "IDPRODUIT", nullable = true)
-    private Long idproduit;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "IDPRODUIT")
+    private PrdProduitEntity idproduit;
     @Basic
     @Column(name = "IDPARAMETRESEPARGNE", nullable = true)
     private Long idparametresepargne;

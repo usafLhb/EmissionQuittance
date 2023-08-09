@@ -1,7 +1,6 @@
 package Quittance.EmissionQuittance.critaria.soap;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
-import net.sf.saxon.value.StringValue;
 
 @XmlRootElement(name = "customerRequest")
 public class CustomerRequest {

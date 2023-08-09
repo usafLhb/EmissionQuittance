@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Intermediaire")
+    @Table(name = "Intermediaire")
 //, schema = "CONVERGPARAM", catalog = ""
 public class IntermediaireEntity {
     @Id

@@ -16,6 +16,6 @@ public interface IQuittanceService {
     public List<QtcQuittanceDTO> getByRefQuittanceEntity(Long refQuittanceid);
     List<QtcQuittanceDTO> searchByDateBetween(Calendar dateDebut, Calendar dateFin);
     public List<QtcQuittanceDTO> searchByCodePolice(Long codePolice);
-    public Page<QtcQuittanceDTO> searchQuittances(Long refQuittanceid, Calendar dateDebut, Calendar dateFin, Long codePolice, int pageNumber, int pageSize);
+    public Page<QuittanceResponse> searchQuittances(Long refQuittanceid, Calendar dateDebut, Calendar dateFin, Long codePolice, int pageNumber, int pageSize);
 
     }
